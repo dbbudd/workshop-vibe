@@ -645,3 +645,47 @@ properties, so all three themes keep working.
 | Steps | A numbered list whose red circles match the markers. A list that continues the numbering sets `counter-reset`. | `<ol class="steps" style="counter-reset: step 2">` |
 | Two columns | Two short boxes side by side ("Best for", "Start here"), stacked on phones | `<div class="two-col"><div><h4>…</h4><p>…</p></div>…</div>` |
 | Video list | Videos two to a row, each with a one-line "why" under it. Videos still load only when pressed. | `<div class="video-list"><div class="video-item"><div class="video" data-video="…" …></div><p class="video-why">…</p></div></div>` |
+
+## The session page (magazine)
+
+`index.html` is laid out like a magazine, in `assets/magazine.css` and `assets/magazine.js`, scoped to `main.mag` so
+the tool pages keep the reader's plain look. The film's boards are rebuilt in HTML and CSS rather than shown as
+stills, with the presenter's board copy word for word. That keeps every word in reach of Listen, Translate, Search and
+the text-size control.
+
+**Type.** Playfair Display ("HKIS Display") for display type, numerals and pull quotes; Montserrat ("HKIS Label") for
+small capitals, pills and buttons. Body text stays in the reader's chosen font. Choosing the dyslexia-friendly font
+swaps both display faces for OpenDyslexic (magazine.js copies the choice to `<html data-font>`).
+
+**Colour.** The HKIS palette: navy `#002a42`, red `#aa272f`, yellow `#ffcd00` and slate `#577899`, with light, sepia
+and dark versions of each token (`--m-ink`, `--m-paper`, `--m-panel` and so on). Faded words, such as the unused
+SCAMPER verbs, only appear in large type, where 3:1 is the contrast needed.
+
+| Component | What it is |
+|---|---|
+| Cover | A card with the title on its two board lines, the red rule and date, the sign-in pills (links to each guide's log-in exercise), "You leave with" and an "Inside" list of the sections |
+| Feature heading | The section's `h2` as a small red label with a rule running to the right |
+| Step heading | The step's `h2` with a big red Playfair numeral hanging before it, a rule under the row, and the Complete button |
+| Panel | A navy board with white type and yellow accents: the question, What it couldn't do, and the closing question |
+| Board | A white card with a red top edge: Round 1 and 2, the barrier reframe, Build 01, Test 01, Build 02 |
+| Ribbon tab | The HKIS ribbon's cut end as a bullet; numbered when the board numbers its steps |
+| Help for this step | Buttons into the Flint or Gemini guide's exercises, and one into the tool itself |
+| Loop ring | An SVG ring with HTML labels, sized to its own width; it draws once as it scrolls into view |
+| Live fern | The film's four rules drawn on a canvas in the page's ink colour, redrawn when the theme changes |
+
+**Ribbons.** Three HKIS ribbons, on the cover, the "If the machine recurses…" card and the closing card. Each one's
+cut ends run off the edges of its card. On a narrow card a ribbon would run behind the words, so the card shows a red
+edge instead.
+
+**Text size.** The Aa control goes from 75% to 150%. The layout reflows instead of overlapping:
+
+- grids use `repeat(auto-fit, minmax(min(100%, Nrem), 1fr))`, so columns drop to one as the text grows;
+- every section is a size container, and large type is capped at a share of its width (`cqi`), so a single long word
+  still fits a phone at 150% in OpenDyslexic;
+- the corners of the room, the split's labels and the loop's labels size to their own box.
+
+Check the page at 150% on a phone, in OpenDyslexic, after any change to it.
+
+**Motion.** Only the fern (it builds dot by dot) and the loop ring (it draws once) move, each one time, as it scrolls
+into view. Readers who ask for reduced motion see both finished. Without JavaScript the page shows a picture of the
+fern and a complete ring.
