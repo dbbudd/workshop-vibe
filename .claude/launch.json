@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "workshop-vibe",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [".claude/serve.mjs", "4322"],
+      "port": 4322
+    }
+  ]
+}

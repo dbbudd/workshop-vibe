@@ -1,0 +1,121 @@
+/* =============================================================
+   WORKSHOP COMPONENTS
+   -------------------------------------------------------------
+   The few things this site needs that the Biology template does not
+   have. Colours come from the template's custom properties, so the
+   light, sepia and dark themes all keep working.
+
+     .prompt-card   a prompt to try, with a Copy button (workshop.js)
+     .spine         the prompt spine, with its blanks drawn as lines
+     figure.marked  a screenshot with numbered markers on the buttons
+     ol.steps       numbered steps that match those markers
+     .two-col       two short columns side by side (stack on phones)
+   ============================================================= */
+
+/* ===== PROMPT CARDS ===== */
+.prompt-card {
+    position: relative;
+    margin: 1.25rem 0;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    border-left: 4px solid var(--red);
+    border-radius: 4px;
+    background: var(--bg-surface);
+}
+.prompt-card .prompt-label {
+    display: block;
+    margin: 0 0 0.35rem;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--red);
+}
+[data-theme="dark"] .prompt-card .prompt-label { color: var(--yellow); }
+.prompt-card .prompt-text { margin: 0; padding-right: 5.5rem; font-size: 1rem; line-height: 1.6; }
+.prompt-card .prompt-note { margin: 0.5rem 0 0; font-size: 0.82rem; color: var(--text-secondary); }
+.prompt-copy {
+    position: absolute; top: 0.75rem; right: 0.75rem;
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    padding: 0.35rem 0.7rem; border-radius: 6px;
+    border: 1px solid var(--border); background: var(--bg);
+    color: var(--text); font: inherit; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+}
+.prompt-copy:hover { border-color: var(--dark-blue); }
+[data-theme="dark"] .prompt-copy:hover { border-color: var(--light-teal); }
+.prompt-copy:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.prompt-copy.done { border-color: var(--light-teal); }
+
+/* ===== THE PROMPT SPINE ===== */
+.spine { font-size: 1.15rem; line-height: 2.1; }
+.spine .blank {
+    display: inline-block; min-width: 3.5em; height: 1.1em;
+    border-bottom: 3px solid var(--yellow); vertical-align: -0.15em;
+}
+.spine .blank.long { min-width: 9em; }
+.spine .blank.short { min-width: 2em; }
+
+/* ===== SCREENSHOTS WITH NUMBERED MARKERS =====
+   The markers sit on the buttons to press, and match the numbers in the
+   list of steps beside them. They are decoration for sighted readers: the
+   steps carry the same instructions as text, and the image has alt text. */
+figure.marked .marked-wrap { position: relative; }
+figure.marked .marked-wrap img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+figure.marked .marker {
+    position: absolute; transform: translate(-50%, -50%);
+    display: flex; align-items: center; justify-content: center;
+    width: 1.9rem; height: 1.9rem; border-radius: 50%;
+    border: 2px solid #fff; background: var(--red); color: #fff;
+    font-size: 0.85rem; font-weight: 700; line-height: 1;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+}
+
+ol.steps { list-style: none; counter-reset: step; padding-left: 0; margin: 1rem 0 1.5rem; }
+ol.steps > li {
+    counter-increment: step; position: relative;
+    padding-left: 2.6rem; margin-bottom: 0.8rem; min-height: 1.9rem;
+}
+ol.steps > li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0.05rem;
+    display: flex; align-items: center; justify-content: center;
+    width: 1.9rem; height: 1.9rem; border-radius: 50%;
+    background: var(--red); color: #fff; font-size: 0.85rem; font-weight: 700;
+}
+/* A list that continues the numbering: <ol class="steps" style="counter-reset: step 2"> starts at 3. */
+
+/* ===== TWO SHORT COLUMNS ===== */
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem 1.5rem; margin: 1.25rem 0; }
+.two-col > div { padding: 1rem 1.25rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-surface); }
+.two-col h4 { margin: 0 0 0.4rem; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); }
+.two-col p:last-child, .two-col ul:last-child { margin-bottom: 0; }
+
+/* ===== VIDEO LIST =====
+   Two videos to a row on a wide screen, one on a phone. Each video keeps its
+   one-line "why" right under it. */
+.video-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.75rem 1.5rem; margin: 1.25rem 0 2rem; }
+.video-list .video { margin: 0 0 0.5rem; }
+.video-why { margin: 0; font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary); }
+
+/* The template sets these small labels in the brand yellow, which is too faint
+   on the light and sepia pages (about 1.5:1). A dark gold passes WCAG AA on both;
+   the dark theme keeps the template's colour, which already passes. */
+:root:not([data-theme="dark"]) .video-meta .video-note,
+:root:not([data-theme="dark"]) .callout-example::before { color: #7a6000; }
+
+@media print {
+    .prompt-copy { display: none; }
+    .prompt-card .prompt-text { padding-right: 0; }
+    .prompt-card, .video-item, figure.marked { break-inside: avoid; }
+    /* A video's title is on its play button, which does not print: print it at
+       the top of the card instead of the template's "Video — see link". */
+    .video-embed[data-title]::before {
+        content: attr(data-title); display: block; padding: 0.75rem 1.1rem 0;
+        font-size: 0.95rem; font-weight: 700; color: #111;
+    }
+    .video-embed[data-title]::after { content: none; }
+}
+
+/* Screen-reader-only text (announcements for the Copy buttons) */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* The Handout button is a link (it downloads the PDF), but it sits with the toolbar
+   buttons: keep the themes' link colours and underline off it */
+#btn-handout, #btn-handout:hover, #btn-handout:visited { color: #fff; text-decoration: none; }
