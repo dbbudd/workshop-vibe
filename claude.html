@@ -53,12 +53,15 @@
         </div>
     </section>
 
-    <section id="log-in" data-kind="Practice" data-track>
+    <section id="log-in" data-kind="Practice" data-time="3 min" data-track>
         <h2>Exercise 1: Get the app and sign in</h2>
 
-        <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Claude app’s sign-in screen, with Continue with Google and Continue with email marked 2.</p></div>
-            <figcaption><b>Figure 1</b> — Signing in to the Claude app.</figcaption>
+        <figure class="shot marked">
+            <div class="marked-wrap">
+                <img src="images/claude/download.jpg" width="1400" height="569" alt="The Claude download page at claude.com/download. The heading says Download Claude, then: Think, hand off tasks, and code, all in one place. Below it, a black Download for macOS button." loading="lazy">
+                <span class="marker" style="left:40.7%;top:74.8%" aria-hidden="true">1</span>
+            </div>
+            <figcaption><b>Figure 1</b> — The Claude download page.</figcaption>
         </figure>
         <ol class="steps">
             <li>Go to <a href="https://claude.com/download" target="_blank" rel="noopener noreferrer"><strong>claude.com/download</strong></a>, choose <strong>Download for macOS</strong>, and open Claude from Applications.</li>
@@ -69,14 +72,13 @@
         </div>
     </section>
 
-    <section id="build" data-kind="Practice" data-track>
+    <section id="build" data-kind="Practice" data-time="6 min" data-track>
         <h2>Exercise 2: Build from your prompt spine</h2>
 
-        <p>Fill in the prompt spine from the session with your own barrier, and send it in a new chat.</p>
-        <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Claude app building the tool as an artifact beside the chat.</p></div>
-            <figcaption><b>Figure 2</b> — Your tool, as an artifact.</figcaption>
-        </figure>
+        <p>Fill in the prompt spine from the session with your own barrier, and send it in a new chat. Here it is filled in for one barrier, as an example. It is the same one the Gemini guide uses, so you can set what two builders make side by side.</p>
+        <div class="callout callout-key">
+            <p>Nobody finishes this. You’re finding out if it’s buildable.</p>
+        </div>
         <ol class="steps" style="counter-reset: step 2">
             <li>Start a new chat. If the app offers <strong>Chat</strong> and <strong>Cowork</strong>, choose Chat.</li>
             <li>Paste your prompt spine, and send it.</li>
@@ -87,18 +89,48 @@
             <p class="prompt-text">Build a single-screen tool for a Grade 7 student who loses their place in a multi-step maths problem. Show the current step first, then let them tick it off. Keep the language at Grade 5. No sign-in.</p>
             <p class="prompt-note">Not yet tested in Claude. <span class="tbc">TBC</span></p>
         </div>
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">What Claude made from that prompt, as an artifact beside the chat.</p></div>
+            <figcaption><b>Figure 2</b> — What Claude made from that prompt.</figcaption>
+        </figure>
         <p>To change it, ask in the same chat, one change at a time. If something breaks, choose <strong>Try fixing with Claude</strong>.</p>
         <div class="callout callout-note">
             <p>No artifact? Artifacts need <strong>Cloud code execution and file creation</strong>, in <strong>Settings</strong>, then <strong>Capabilities</strong>. It is on unless someone turned it off.</p>
         </div>
     </section>
 
-    <section id="share" data-kind="Practice" data-track>
+    <section id="three-words" data-kind="Core" data-time="2 min" data-track>
+        <h2>Three words</h2>
+
+        <p>Claude writes real code. You never have to read it, but three words help you describe what you want.</p>
+
+        <figure class="shot">
+            <img src="images/film/b12-three-words.jpg" alt="A phone outline labelled App. Inside it, a box labelled HTML, and inside the box a red button labelled JavaScript. A small red ribbon arrow points at the button. Beside it, three definitions: APP, anything you open and use, it doesn’t need to be in an App Store. HTML, the structure, boxes, text, where things sit. JAVASCRIPT, the behaviour, what happens when you press the thing. Below: You write neither. You describe the behaviour." loading="lazy">
+            <figcaption><b>Figure 3</b> — One object, built in three steps. Each label sits on the part it names: the box is the HTML, the button is the JavaScript, and the phone around them is the app.</figcaption>
+        </figure>
+
+        <table>
+            <thead>
+                <tr><th scope="col">Word</th><th scope="col">What it means</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="term">App</span></td><td>Anything you open and use. It doesn’t need to be in an App Store.</td></tr>
+                <tr><td><span class="term">HTML</span></td><td>The structure. Boxes, text, where things sit.</td></tr>
+                <tr><td><span class="term">JavaScript</span></td><td>The behaviour. What happens when you press the thing.</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-key">
+            <p>You write neither. You describe the behaviour.</p>
+        </div>
+    </section>
+
+    <section id="share" data-kind="Practice" data-time="4 min" data-track>
         <h2>Exercise 3: Test it, then share it</h2>
 
         <figure class="shot">
             <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The artifact’s Share button, marked 7, with Anyone with the link chosen.</p></div>
-            <figcaption><b>Figure 3</b> — Sharing your tool.</figcaption>
+            <figcaption><b>Figure 4</b> — Sharing your tool.</figcaption>
         </figure>
         <ol class="steps" style="counter-reset: step 5">
             <li>Test it as in Test 01: hand it to a colleague, say nothing, and watch where they hesitate. Each hesitation is your next prompt.</li>
@@ -120,7 +152,7 @@
         </div>
     </section>
 
-    <section id="further" data-kind="Orientation" data-track>
+    <section id="further" data-kind="Orientation" data-time="20 min" data-track>
         <h2>Push it further</h2>
 
         <p>Change one thing at a time. Each of these is a whole prompt; send it in the same chat.</p>

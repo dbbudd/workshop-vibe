@@ -88,8 +88,8 @@ window.COURSE = {
             id: 'claude', file: 'claude.html', unit: 'tools',
             title: '4 Claude',
             summary: 'Round 2 of the Shortcuts and Claude session. In the Claude desktop app, build a tool from your prompt spine as an artifact beside the chat, test it, publish it and share the link. A draft.',
-            keywords: 'claude anthropic desktop app mac artifact prompt spine publish copy link unpublish share round 2 shortcuts session',
-            sims: [], time: '', sections: 4, standards: [], kind: 'Lesson',
+            keywords: 'claude anthropic desktop app mac artifact prompt spine three words app html javascript share anyone with the link copy code round 2 shortcuts session',
+            sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
             question: 'What does your barrier look like as a screen students use?', status: 'planned'
         },
         {
