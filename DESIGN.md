@@ -249,7 +249,7 @@ changes marked. In short:
 
 - **Tools:** no Cards, Present or Printout. The red tool slot holds **Handout**, which downloads the
   A3 handout PDF.
-- **Pages:** three pages in two groups (The session; Getting started with the tools), and no
+- **Pages:** ten pages in three groups (The session; Getting started with the tools; App publishing), and no
   reference pages. Glossary pop-ups still work from `COURSE.glossary` in `toc.js`.
 - **Storage:** settings and progress are kept under `vibe_` keys, separate from the Biology reader,
   which shares the `dbbudd.github.io` origin.
@@ -639,12 +639,13 @@ properties, so all three themes keep working.
 
 | Component | What it is | Markup |
 |---|---|---|
-| Prompt card | A prompt to try, with a red left border, a small-capitals label and a Copy button. `data-copy` sets the exact text copied (the prompt spine copies with ___ for each blank). | `<div class="prompt-card" data-copy="…"><span class="prompt-label">…</span><p class="prompt-text">…</p></div>` |
+| Prompt card | A prompt to try, with a red left border, a small-capitals label and a Copy button. `data-copy` sets the exact text copied (the prompt spine copies with ___ for each blank); `data-keep-lines` keeps a long prompt's line breaks, for a tool that shows them (Shortcuts' Use Model). The Copy button sits top right; on a narrow card (under 30rem: a phone, or large text) it moves under the prompt, so the label and the prompt use the card's full width. A `<span class="token">` inside a prompt draws a variable as Shortcuts draws it. | `<div class="prompt-card" data-copy="…"><span class="prompt-label">…</span><p class="prompt-text">…</p></div>` |
 | Prompt spine | The spine's blanks drawn as yellow lines (decoration, not text) | `<p class="prompt-text spine">… <span class="blank"></span> …</p>` |
-| Marked screenshot | A screenshot with red numbered markers on the buttons to press. The markers are `aria-hidden`; the numbered steps beside the figure carry the same instructions as text, and the image has alt text. | `<figure class="shot marked"><div class="marked-wrap"><img …><span class="marker" style="left:…%;top:…%" aria-hidden="true">2</span></div>…</figure>` |
+| Marked screenshot | A screenshot with red numbered markers on the buttons to press. The markers are `aria-hidden`; the numbered steps beside the figure carry the same instructions as text, and the image has alt text. Give the image its `width` and `height`, so the markers sit right before it loads. A marker never grows past 6.5% of the picture's width, so markers on buttons that sit close together never cover each other on a phone. Add `portrait` for a tall screenshot (a phone, or a narrow window): it is shown at most 22rem wide. | `<figure class="shot marked"><div class="marked-wrap"><img … width="…" height="…"><span class="marker" style="left:…%;top:…%" aria-hidden="true">2</span></div>…</figure>` |
 | Steps | A numbered list whose red circles match the markers. A list that continues the numbering sets `counter-reset`. | `<ol class="steps" style="counter-reset: step 2">` |
 | Two columns | Two short boxes side by side ("Best for", "Start here"), stacked on phones | `<div class="two-col"><div><h4>…</h4><p>…</p></div>…</div>` |
-| Video list | Videos two to a row, each with a one-line "why" under it. Videos still load only when pressed. | `<div class="video-list"><div class="video-item"><div class="video" data-video="…" …></div><p class="video-why">…</p></div></div>` |
+| Video list | Videos two to a row, each with a one-line "why" under it. Videos still load only when pressed. |
+| Placeholder | A screenshot or video still to come: a dashed, striped box that says what it will show, so it is never mistaken for the real thing. A fact still to check carries a yellow TBC tag. Search for `shot-todo` and `tbc` to find them all. | `<figure class="shot"><div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">…</p></div>…</figure>`; `<span class="tbc">TBC</span>` | `<div class="video-list"><div class="video-item"><div class="video" data-video="…" …></div><p class="video-why">…</p></div></div>` |
 
 ## The session page (magazine)
 
@@ -672,6 +673,8 @@ SCAMPER verbs, only appear in large type, where 3:1 is the contrast needed.
 | Help for this step | Buttons into the Flint or Gemini guide's exercises, and one into the tool itself |
 | Loop ring | An SVG ring with HTML labels, sized to its own width; it draws once as it scrolls into view |
 | Live fern | The film's four rules drawn on a canvas in the page's ink colour, redrawn when the theme changes |
+| Tool switch | "Your session's tools" on the cover: two toggle buttons (aria-pressed) choosing Flint + Gemini or Shortcuts + Claude. Parts that name a tool carry `data-for`; the other pair's are hidden, and Listen and Translate skip them |
+| Handout menu | With two handouts, the toolbar's Handout button opens a short menu (in the same pop-up family as Text and Progress): one row per pair, the reader's own marked, a missing handout shown as Soon |
 
 **Ribbons.** Three HKIS ribbons, on the cover, the "If the machine recurses…" card and the closing card. Each one's
 cut ends run off the edges of its card. On a narrow card a ribbon would run behind the words, so the card shows a red

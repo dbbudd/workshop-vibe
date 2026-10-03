@@ -13,6 +13,14 @@ Published with GitHub Pages at **https://dbbudd.github.io/workshop-vibe/**.
 | `index.html` | **The session**, laid out like a magazine. The film's boards are rebuilt in HTML and CSS: the cover, the idea (recursion), why now (MIT), so we teach, the question and the loop. Then come the nine steps from the warm-up to Build 02, each build step with buttons into the Flint or Gemini guide, and where this goes. |
 | `flint.html` | **Flint K12.** Round 1, as getting-started exercises: log in, make an interactive, make an explainer video, turn it into an activity, and videos to push further. |
 | `gemini.html` | **Gemini.** Round 2: open Canvas, build from the prompt spine, the three words, test and share, and videos to push further. |
+| `claude.html` | **Claude** (draft). Round 2 of the Shortcuts + Claude session, in the Claude desktop app: build from the prompt spine as an artifact, test it, publish it and share the link, push it further. |
+| `chatgpt.html` | **ChatGPT** (draft). The third rung, in the ChatGPT app for Mac: build from the prompt spine as a code block with Preview, test it, publish it with GitHub Pages, push it further. Carries a Hong Kong availability warning. |
+| `claude-code.html` | **Claude Code** (draft). The third rung, in the Code tab of the Claude desktop app: a tool bigger than one screen, built in a folder, then published. |
+| `shortcuts.html` | **Apple Shortcuts** (draft). Automate a classroom routine, add an AI step, share it. |
+| `xcode.html` | **Xcode** (draft). Build the tool as a real iPad app with the agents in Xcode 27, run it in Device Hub or on your own iPad, get it to students (privately through Apple School Manager, or the App Store). |
+| `github-pages.html` | **App publishing: GitHub Pages** (draft). Publish a tool as a free website from a repository, then keep it up to date with GitHub Desktop. |
+| `vercel.html` | **App publishing: Vercel** (draft). Publish a web app from GitHub, with a preview link for every change. |
+| `app-store.html` | **App publishing: App Store** (draft). The Apple Developer Program, App Store Connect, TestFlight and App Review. |
 | `handout/` | The two-page colour A3 handout (PDF). The toolbar's red **Handout** button downloads it. |
 
 ## How it is built
@@ -47,9 +55,25 @@ Changed from the Biology template:
 | `vendor/fonts/hkis-display/`, `vendor/fonts/hkis-label/` | Playfair Display and Montserrat, the HKIS brand fonts, for the session page (SIL Open Font License). |
 | `images/mag/` | Art for the session page: the fern, the lungs, brain cell and network drawings from the film, and three HKIS ribbons. |
 | `assets/listen-voice*.js` | Listen's natural-voice player (the voices themselves come from the Biology site). |
-| `images/film/` | Stills of each board from the session film (render v27), 1280 × 720. Only `b12-three-words.jpg` is still used (on the Gemini page); the session page now rebuilds the boards instead. |
+| `images/film/` | The Three words board from the session film (render v27), on the Gemini page. The session page rebuilds the other boards in HTML and CSS. |
 | `images/flint/`, `images/gemini/` | Screenshots taken on 1 October 2026 on HKIS accounts. |
-| `images/examples/` | The Biology reader and Margins, the presenter's own builds. |
+| `images/examples/` | Margins and the Biology reader, the presenter's own builds, on the session page. |
+
+## Two pairs of tools
+
+The session runs with **Flint + Gemini** (2 October 2026) or with **Shortcuts + Claude** (the next run). The session
+page shows one pair at a time:
+
+- the cover has a "Your session's tools" switch, and the choice is remembered;
+- `https://dbbudd.github.io/workshop-vibe/?tools=shortcuts-claude` opens the Shortcuts + Claude version directly
+  (use this address on that session's handout and slides); `?tools=flint-gemini` opens the other;
+- anything on `index.html` that names a tool comes in two versions, marked `data-for="flint-gemini"` and
+  `data-for="shortcuts-claude"`. Only the reader's pair is shown, and Listen and Translate skip the other;
+- the pairs and their handouts are in `COURSE.tools` in `assets/toc.js`. The Handout button and the sidebar list
+  both handouts; a handout set to `null` shows as Soon. To add the Shortcuts + Claude handout, put the PDF in
+  `handout/` and set its path there.
+
+The "Can't / Can" board in Build 02 is Flint + Gemini only for now, until the new deck has its own version.
 
 ## Preview locally
 
@@ -76,3 +100,16 @@ Then open http://localhost:4322. Videos only play when the site is served from a
   width. Check 150% on a phone, in OpenDyslexic too, after changing it.
 - **When shared CSS or JavaScript changes**, bump `ASSET_V` in `assets/course.js` and the `?v=` on every page.
 - **Videos** were checked as embeddable on 1 October 2026 (YouTube oEmbed). Each loads only when pressed.
+- **The draft guides** (ChatGPT, Claude Code, Apple Shortcuts, Xcode, GitHub Pages, Vercel, App Store) mark what is
+  still to come, so it is easy to find:
+  - a screenshot still to take is a `<div class="shot-todo">` box inside its `<figure>`. Replace the box with the
+    image, and add numbered markers as on `flint.html` (`figure.marked`);
+  - a fact still to check carries `<span class="tbc">TBC</span>`. Delete the tag once it is confirmed;
+  - a video still to find is a `shot-todo video-todo` box. Replace it with `<div class="video" data-video="ID" …>`,
+    as on `gemini.html`;
+  - when a guide is finished, delete its "Draft" callout in the overview, and "A first draft" in its `toc.js`
+    summary.
+- **Opening a guide when it is ready.** The draft guides have `status: 'planned'` in `assets/toc.js`, so the sidebar
+  shows them as Soon, links to them elsewhere on the site are switched off (with a Soon tag), and their sections don't
+  count toward progress. Change a guide's status to `'ready'` and all of that switches on by itself. The pages still
+  exist, so you can open and check a draft locally (for example `http://localhost:4322/chatgpt.html`).

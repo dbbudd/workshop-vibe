@@ -16,13 +16,30 @@
      sections  number of [data-track] sections in the file, so progress can
                be counted without opening the page. Keep it in step.
      question  the one question the page answers (the progression strip)
+     status    'ready', or 'planned' for a page that is not open yet: the sidebar
+               shows it as Soon, links to it on other pages switch off (workshop.js),
+               and its sections don't count toward progress
    ============================================================= */
 window.COURSE = {
     title: 'Bring a Barrier, Leave With a Build',
     subtitle: 'Build the classroom tool nobody else will build for you',
 
     // The A3 handout: the Handout button in the toolbar and the foot of the sidebar.
+    // (Used only when there is no COURSE.tools below.)
     handout: 'handout/Bring-a-Barrier-handout-A3.pdf',
+
+    // The session runs with one of two pairs of tools. The session page shows the
+    // reader's pair: ?tools=shortcuts-claude in the address picks it, the cover has a
+    // switch, and the choice is remembered. Each pair has its own A3 handout; null
+    // means still to come (it shows as Soon). If you change the default, change the
+    // data-tools attribute on index.html's <html> tag to match.
+    tools: {
+        default: 'flint-gemini',
+        pairs: {
+            'flint-gemini': { label: 'Flint + Gemini', handout: 'handout/Bring-a-Barrier-handout-A3.pdf' },
+            'shortcuts-claude': { label: 'Shortcuts + Claude', handout: null }
+        }
+    },
 
     // Listen's natural voices (121 MB) are borrowed from the Biology reader, which is
     // served from the same host. Anywhere else, Listen uses the device's voices.
@@ -30,7 +47,8 @@ window.COURSE = {
 
     units: [
         { id: 'session', label: 'The session', short: 'Session', hue: 210, needs: [] },
-        { id: 'tools', label: 'Getting started with the tools', short: 'Tools', hue: 355, needs: ['session'] }
+        { id: 'tools', label: 'Getting started with the tools', short: 'Tools', hue: 355, needs: ['session'] },
+        { id: 'publishing', label: 'App publishing', short: 'Publishing', hue: 40, needs: ['tools'] }
     ],
 
     chapters: [
@@ -57,6 +75,70 @@ window.COURSE = {
             keywords: 'gemini canvas google vibe coding app html javascript share classroom drive prompt spine',
             sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
             question: 'What can you build when the behaviour is yours to design?', status: 'ready'
+        },
+        {
+            id: 'shortcuts', file: 'shortcuts.html', unit: 'tools',
+            title: '3 Apple Shortcuts',
+            summary: 'Round 1 of the Shortcuts and Claude session. Describe a shortcut in plain words and let Apple Intelligence build it, then check it, tweak it, run it and share it. The worked example, Summarise, turns a meeting transcript into notes. A draft.',
+            keywords: 'apple shortcuts apple intelligence describe a shortcut describe a change tweak use model on-device summarise transcript meeting notes automation ipad iphone mac icloud link ai',
+            sims: [], time: '', sections: 6, standards: [], kind: 'Lesson',
+            question: 'What could run itself, every lesson?', status: 'planned'
+        },
+        {
+            id: 'claude', file: 'claude.html', unit: 'tools',
+            title: '4 Claude',
+            summary: 'Round 2 of the Shortcuts and Claude session. In the Claude desktop app, build a tool from your prompt spine as an artifact beside the chat, test it, publish it and share the link. A draft.',
+            keywords: 'claude anthropic desktop app mac artifact prompt spine publish copy link unpublish share round 2 shortcuts session',
+            sims: [], time: '', sections: 4, standards: [], kind: 'Lesson',
+            question: 'What does your barrier look like as a screen students use?', status: 'planned'
+        },
+        {
+            id: 'chatgpt', file: 'chatgpt.html', unit: 'tools',
+            title: '5 ChatGPT',
+            summary: 'The third rung. In the ChatGPT app for Mac, build the same barrier from your prompt spine as a code block you can preview, then publish it for students with GitHub Pages. A draft.',
+            keywords: 'chatgpt openai desktop app mac chat code block preview download code edit with ai github pages data controls temporary chat hong kong third rung prompt spine',
+            sims: [], time: '', sections: 4, standards: [], kind: 'Lesson',
+            question: 'What changes when a different builder reads the same prompt spine?', status: 'planned'
+        },
+        {
+            id: 'claude-code', file: 'claude-code.html', unit: 'tools',
+            title: '6 Claude Code',
+            summary: 'The third rung. Build a tool bigger than one screen with Claude Code, Anthropic’s coding agent, then publish it. A first draft.',
+            keywords: 'claude code anthropic agent coding folder website index.html third rung publish',
+            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
+            question: 'What can you build when the tool stops being the limit?', status: 'planned'
+        },
+        {
+            id: 'xcode', file: 'xcode.html', unit: 'tools',
+            title: '7 Xcode',
+            summary: 'Build a classroom tool as a real iPad app with the AI agents in Xcode 27, run it in a simulator or on your own iPad, and get it to students. A draft.',
+            keywords: 'xcode 27 swift swiftui ipad app agents claude agent codex chatgpt intelligence coding assistant device hub simulator developer mode apple school manager',
+            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
+            question: 'What should be a real app on a student’s iPad?', status: 'planned'
+        },
+        {
+            id: 'github-pages', file: 'github-pages.html', unit: 'publishing',
+            title: '1 GitHub Pages',
+            summary: 'Publish a classroom tool as a free website from a GitHub repository, and keep it up to date with GitHub Desktop. A first draft.',
+            keywords: 'github pages publish website repository index.html free link deploy github desktop commit push clone',
+            sims: [], time: '', sections: 6, standards: [], kind: 'Lesson',
+            question: 'How do students open what you built?', status: 'planned'
+        },
+        {
+            id: 'vercel', file: 'vercel.html', unit: 'publishing',
+            title: '2 Vercel',
+            summary: 'Publish a web app with Vercel from a GitHub repository, with a preview link for every change. A first draft.',
+            keywords: 'vercel deploy web app github preview link hosting',
+            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
+            question: 'How does a growing tool stay live while you change it?', status: 'planned'
+        },
+        {
+            id: 'app-store', file: 'app-store.html', unit: 'publishing',
+            title: '3 App Store',
+            summary: 'Publish an app made in Xcode: the Apple Developer Program, App Store Connect, TestFlight and App Review. A first draft.',
+            keywords: 'app store apple developer program app store connect testflight app review publish ipad',
+            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
+            question: 'What does it take to put an app in students’ hands?', status: 'planned'
         }
     ],
 
@@ -79,6 +161,15 @@ window.COURSE = {
         'Canvas': 'A Gemini workspace that writes a document or a small web app beside the chat. You try the app in Preview and ask for changes in plain language.',
         'Sparky': 'Flint’s AI tutor, which talks with students inside a Flint activity.',
         'SCAMPER': 'A creative-thinking routine for improving an idea: Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Reverse. Each word is one way to change one thing.',
-        'Thinking routine': 'A short set of steps, used again and again, that shapes how students think, such as See, Think, Wonder.'
+        'Thinking routine': 'A short set of steps, used again and again, that shapes how students think, such as See, Think, Wonder.',
+        'Coding agent': 'An AI that works on a project’s files by itself, step by step: it writes code, runs it and fixes what breaks, checking with you as it goes.',
+        'Swift': 'Apple’s programming language for apps on iPhone, iPad and Mac.',
+        'Repository': 'A project’s folder on GitHub: its files, and the history of every change made to them.',
+        'App Store Connect': 'Apple’s website for an app on the App Store: its store page, its builds, testing and review.',
+        'TestFlight': 'Apple’s way to try an app before it is on the App Store. Testers install it from an invitation.',
+        'Commit': 'A saved set of changes to the files in a repository, with a short note saying what changed.',
+        'Push': 'To send your commits from your computer to GitHub, so the repository, and any site published from it, has your changes.',
+        'Artifact': 'Something Claude makes beside the chat, such as a document or a small working app, that you can use straight away, change by asking, and share.',
+        'Apple Intelligence': 'Apple’s AI, built into recent iPhones, iPads and Macs. A smaller model runs on the device itself; larger ones run on Apple’s servers, called Private Cloud Compute.'
     }
 };

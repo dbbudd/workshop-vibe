@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code: getting started — Bring a Barrier, Leave With a Build</title>
+<meta name="description" content="A draft guide to building a classroom tool bigger than one screen with Claude Code, Anthropic’s coding agent, in the Claude desktop app, and publishing it.">
+<link rel="stylesheet" href="assets/course.css?v=1">
+<link rel="stylesheet" href="assets/workshop.css?v=1">
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
+</head>
+<body data-root="" data-chapter="claude-code">
+
+<!-- A draft. Screenshots still to come are .shot-todo boxes; facts still to check carry a TBC tag.
+     Checked October 2026: Claude Code comes with the paid Claude plans (Pro, Max, Team,
+     Enterprise), not Free (claude.com/pricing). In the desktop app it is the Code tab; a page
+     it makes opens in the app's own browser pane. Labels checked in the app itself (Claude
+     2.19675): Code, Select folder, the permission modes Manual, Auto (the default), Accept
+     edits and Plan mode. Claude Code on the web (claude.ai/code)
+     works on a GitHub repository instead of a folder on your computer. -->
+<main class="main" role="main">
+
+    <section id="overview">
+        <div class="chapter-eyebrow">The third rung · Getting started</div>
+        <h1>Claude Code</h1>
+        <p class="lead">Claude Code is Anthropic’s <span class="term">coding agent</span>. It works in a folder on your computer: it writes the files, runs them, and changes them when you ask. A tool can grow past one screen, into several pages or a whole website. This website was built with it.</p>
+
+        <div class="chapter-meta"></div>
+
+        <div data-progression></div>
+
+        <div class="two-col">
+            <div>
+                <h4>Best for</h4>
+                <p>Tools bigger than one screen: several pages, saved settings, a site like this one. <strong>The tool stops being the limit. You become the limit.</strong></p>
+            </div>
+            <div>
+                <h4>Start here</h4>
+                <p>The <strong>Code</strong> tab in the <a href="https://claude.com/download" target="_blank" rel="noopener noreferrer"><strong>Claude desktop app</strong></a>, for Mac or Windows.<br>It needs a paid Claude plan: Pro, Max, Team or Enterprise.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-key" data-label="Check first">
+            <p>Hong Kong is not on Anthropic’s list of supported regions for Claude, and Anthropic’s terms allow Claude, Claude Code included, to be used only from a supported region. Check with HKIS leadership and IT before you rely on it.</p>
+        </div>
+
+        <div class="callout callout-note" data-label="Draft">
+            <p>This guide is a draft. Screenshots marked “to come” are still to be taken, and anything tagged <span class="tbc">TBC</span> still needs checking.</p>
+        </div>
+    </section>
+
+    <section id="open" data-kind="Practice" data-track>
+        <h2>Exercise 1: Open Claude Code and choose a folder</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Code tab in the Claude desktop app, with the folder choice marked 3.</p></div>
+            <figcaption><b>Figure 1</b> — Starting a session in a folder.</figcaption>
+        </figure>
+        <ol class="steps">
+            <li>Make a new, empty folder for your tool, for example in Documents.</li>
+            <li>Open the Claude desktop app, and choose <strong>Code</strong>.</li>
+            <li>Start a new session. Choose <strong>Select folder</strong>, and pick your folder.</li>
+        </ol>
+        <div class="callout callout-key">
+            <p>Claude gets read and write access to the folder you choose. Keep students’ names and personal information out of it.</p>
+        </div>
+    </section>
+
+    <section id="build" data-kind="Practice" data-track>
+        <h2>Exercise 2: Describe your tool</h2>
+
+        <p>Start from your prompt spine. Claude Code can make more than one screen, so say what the pages are and where the tool will live.</p>
+        <div class="prompt-card">
+            <span class="prompt-label">A first prompt</span>
+            <p class="prompt-text">Build a single-screen tool for a Grade 7 student who loses their place in a multi-step maths problem. Show the current step first, then let them tick it off. Keep the language at Grade 5. No sign-in. Put everything in one file called index.html.</p>
+            <p class="prompt-note">Not yet tested. <span class="tbc">TBC</span></p>
+        </div>
+        <div class="callout callout-note">
+            <p>At first, set the permission mode to <strong>Manual</strong>. Claude Code then stops to ask before it changes a file or runs a command: read what it wants to do, then allow it. The default, <strong>Auto</strong>, decides for itself which steps are safe.</p>
+        </div>
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">Claude Code writing the files, with a request to allow a change.</p></div>
+            <figcaption><b>Figure 2</b> — Claude Code at work.</figcaption>
+        </figure>
+    </section>
+
+    <section id="see" data-kind="Practice" data-track>
+        <h2>Exercise 3: See it, then change it</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">Your tool open in the app’s browser pane, beside the chat.</p></div>
+            <figcaption><b>Figure 3</b> — Your tool, running.</figcaption>
+        </figure>
+        <ol class="steps" style="counter-reset: step 3">
+            <li>Ask Claude Code to show you the page. It opens beside the chat, in the app’s own browser.</li>
+            <li>Use it as a student would.</li>
+            <li>Ask for one change at a time, and check each one. If a change makes it worse, ask Claude Code to put it back.</li>
+        </ol>
+    </section>
+
+    <section id="publish" data-kind="Practice" data-track>
+        <h2>Exercise 4: Publish it</h2>
+
+        <p>When it works, put it online so students can open it from a link. You need a free GitHub account. Claude Code asks before each step, and may ask you to sign in to GitHub in your browser.</p>
+        <div class="prompt-card">
+            <span class="prompt-label">Ask for help</span>
+            <p class="prompt-text">Help me publish this folder with GitHub Pages, step by step. Explain each step before you do it.</p>
+            <p class="prompt-note">Not yet tested. <span class="tbc">TBC</span></p>
+        </div>
+        <div class="resource-list">
+            <a class="btn-external" href="github-pages.html">
+                <span class="btn-external-icon" aria-hidden="true">&#10140;</span>
+                <span><strong>Publish it with GitHub Pages</strong><small>The App publishing guide, step by step. Exercise 5 puts a folder like yours online with GitHub Desktop</small></span>
+                <span class="btn-external-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="further" data-kind="Orientation" data-track>
+        <h2>Push it further</h2>
+
+        <p>Change one thing at a time, and test after each change.</p>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Add a second page for the teacher, with the answers.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Make it work without an internet connection.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Make it easier to read: bigger text and more contrast.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Explain each file you made, in plain English.</p>
+        </div>
+        <p>No desktop app? <strong>Claude Code on the web</strong>, at <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer">claude.ai/code</a>, does the same work on a GitHub repository instead of a folder on your computer.</p>
+
+        <h3>Videos</h3>
+        <p>Videos to come. Each one will load only when you press play.</p>
+
+        <div class="video-list">
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">A first project in Claude Code.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Claude Code for teachers who don’t code.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">From a folder on your computer to a link students can open.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+        </div>
+    </section>
+
+</main>
+
+<script src="assets/toc.js?v=1"></script>
+<script src="assets/course.js?v=1"></script>
+<script src="assets/workshop.js?v=1"></script>
+</body>
+</html>

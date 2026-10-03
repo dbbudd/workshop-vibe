@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xcode: getting started — Bring a Barrier, Leave With a Build</title>
+<meta name="description" content="A draft guide to making a one-screen iPad app with the AI agents in Xcode 27, running it in a simulator or on your own iPad, and getting it to students.">
+<link rel="stylesheet" href="assets/course.css?v=1">
+<link rel="stylesheet" href="assets/workshop.css?v=1">
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
+</head>
+<body data-root="" data-chapter="xcode">
+
+<!-- A draft. Screenshots still to come are .shot-todo boxes; facts still to check carry a TBC tag.
+     Checked October 2026 against Xcode 27.0 (27A266a) on the presenter's Mac (its compiled interface
+     text and templates) and Apple's documentation (developer.apple.com/documentation/xcode):
+     New Project → App (SwiftUI, saved later with File → Save Project); Settings → Intelligence →
+     Agents (Get, Install) and Chat (ChatGPT in Xcode, no account needed); the Coding Assistant
+     (⌘0, New Conversation); Run (⌘R) into a simulator in Device Hub; signing, Trust and Developer Mode
+     for your own iPad; a free Apple Account's 7-day limit; TestFlight can't reach student accounts. -->
+<main class="main" role="main">
+
+    <section id="overview">
+        <div class="chapter-eyebrow">Apple · Getting started</div>
+        <h1>Xcode</h1>
+        <p class="lead">Xcode is Apple’s free app for making apps for iPhone, iPad and Mac. You build in <span class="term">Swift</span>, and Xcode 27 has AI agents built in, such as Claude Agent and ChatGPT’s Codex, that plan, write and test the code with you.</p>
+
+        <div class="chapter-meta"></div>
+
+        <div data-progression></div>
+
+        <div class="two-col">
+            <div>
+                <h4>Best for</h4>
+                <p>A tool that should be a real app on a student’s iPad: <strong>it works offline, keeps data on the device, and needs no sign-in.</strong></p>
+            </div>
+            <div>
+                <h4>Start here</h4>
+                <p><strong>Xcode 27</strong>, free from the Mac App Store. It needs a Mac with Apple silicon (M1 or later) on macOS 26.6 or later.<br>Swift Playground, on iPad or Mac, is a gentler start, but has no AI chat.</p>
+            </div>
+        </div>
+
+        <div class="callout callout-key" data-label="Check first">
+            <p>The AI agents come from Anthropic, OpenAI and Google, and neither Anthropic nor OpenAI lists Hong Kong as a supported region. Check with HKIS IT before you rely on them.</p>
+        </div>
+
+        <div class="callout callout-note" data-label="Draft">
+            <p>This guide is a draft. Screenshots marked “to come” are still to be taken, and anything tagged <span class="tbc">TBC</span> still needs checking.</p>
+        </div>
+    </section>
+
+    <section id="install" data-kind="Practice" data-track>
+        <h2>Exercise 1: Install Xcode and start a project</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Welcome to Xcode window, with App in the New Project menu marked 2.</p></div>
+            <figcaption><b>Figure 1</b> — Starting a new app.</figcaption>
+        </figure>
+        <ol class="steps">
+            <li>Install <strong>Xcode</strong> from the Mac App Store, and open it. The first time, choose <strong>Download &amp; Install</strong> to add the simulators and tools.</li>
+            <li>In the Welcome to Xcode window, choose <strong>App</strong> from the <strong>New Project</strong> menu. Xcode makes a SwiftUI app called MyApp straight away.</li>
+            <li>Choose <strong>File</strong>, then <strong>Save Project</strong>, to name it and choose where it goes.</li>
+        </ol>
+        <div class="callout callout-note">
+            <p>Save it in a new folder in your home folder, not in Documents, Desktop, Downloads or iCloud Drive: macOS can stop the AI agent from working there.</p>
+        </div>
+    </section>
+
+    <section id="build" data-kind="Practice" data-track>
+        <h2>Exercise 2: Build one screen with AI</h2>
+
+        <p>Set up an agent once. Then describe your screen with the prompt spine.</p>
+        <ol class="steps" style="counter-reset: step 3">
+            <li>Choose <strong>Xcode</strong>, then <strong>Settings…</strong>, then <strong>Intelligence</strong>.</li>
+            <li>Under <strong>Agents</strong>, click <strong>Get</strong> beside Claude Agent, then <strong>Install</strong>, and sign in with your Claude account. Or, under <strong>Chat</strong>, turn on <strong>ChatGPT in Xcode</strong>, which works without an account.</li>
+            <li>Open the coding assistant with <strong>⌘0</strong>, click <strong>New Conversation</strong>, choose your agent, and send the prompt spine.</li>
+        </ol>
+        <div class="prompt-card">
+            <span class="prompt-label">The prompt spine, for an app</span>
+            <p class="prompt-text">Build a SwiftUI screen for a Grade 7 student who loses their place in a multi-step maths problem. Show the current step first, then let them tick it off. Keep the language at Grade 5.</p>
+            <p class="prompt-note">Not yet tested. <span class="tbc">TBC</span></p>
+        </div>
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The coding assistant: the conversation, with the code changes and a preview beside it.</p></div>
+            <figcaption><b>Figure 2</b> — Building with an agent.</figcaption>
+        </figure>
+        <div class="callout callout-note">
+            <p>Claude Agent needs a paid Claude plan (Pro or Max), and its use counts against that plan’s limits. ChatGPT in Xcode works without an account, with usage limits.</p>
+        </div>
+    </section>
+
+    <section id="run" data-kind="Practice" data-track>
+        <h2>Exercise 3: Run it</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">Your app running in an iPad simulator, in Device Hub.</p></div>
+            <figcaption><b>Figure 3</b> — Your app in an iPad simulator.</figcaption>
+        </figure>
+        <ol class="steps" style="counter-reset: step 6">
+            <li>Choose an iPad from the run destination menu in the toolbar, then click <strong>Run</strong> (⌘R). Your app opens in an iPad simulator, in Device Hub.</li>
+            <li>To run it on your own iPad: sign in under <strong>Xcode</strong>, <strong>Settings…</strong>, <strong>Apple Accounts</strong>, and in <strong>Signing &amp; Capabilities</strong> turn on <strong>Automatically manage signing</strong>. Connect the iPad, tap <strong>Trust</strong>, and on the iPad turn on <strong>Developer Mode</strong>, in Settings, then Privacy &amp; Security. Then choose the iPad, and click Run.</li>
+        </ol>
+        <div class="callout callout-note">
+            <p>With a free Apple Account, an app on your own iPad stops working after 7 days, and you run it again from Xcode. A free account can use up to 3 devices.</p>
+        </div>
+    </section>
+
+    <section id="next" data-kind="Practice" data-track>
+        <h2>Exercise 4: Get it to students</h2>
+
+        <p>TestFlight is for testing with colleagues: students’ school Apple Accounts can’t use it. To put the app on HKIS iPads, publish it as a private app for HKIS through Apple School Manager, which HKIS then installs, or put it on the App Store. The App Store guide walks you through both.</p>
+        <div class="resource-list">
+            <a class="btn-external" href="app-store.html">
+                <span class="btn-external-icon" aria-hidden="true">&#10140;</span>
+                <span><strong>Publish it on the App Store</strong><small>The App publishing guide, step by step, including a private app for HKIS</small></span>
+                <span class="btn-external-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="further" data-kind="Orientation" data-track>
+        <h2>Push it further</h2>
+
+        <p>Change one thing at a time, and run the app after each change.</p>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Make the text follow the iPad’s text size setting.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Add a second screen for the teacher.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Save the student’s progress on the device.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Explain what each part of the code does, in plain English.</p>
+        </div>
+        <h3>Videos</h3>
+        <p>Videos to come. Each one will load only when you press play.</p>
+
+        <div class="video-list">
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Your first SwiftUI app in Xcode.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Building with the agents in Xcode 27.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Running your app on a real iPad.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+        </div>
+    </section>
+
+</main>
+
+<script src="assets/toc.js?v=1"></script>
+<script src="assets/course.js?v=1"></script>
+<script src="assets/workshop.js?v=1"></script>
+</body>
+</html>

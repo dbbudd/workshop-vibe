@@ -52,11 +52,20 @@
         }));
     const unitOf = id => units.find(u => u.id === id) || { id, label: id, hue: 210 };
     const chaptersInUnit = u => chapters.filter(c => c.unit === u.id);
+    // A "Soon" chapter (status 'planned') is not open yet, so its sections
+    // don't count toward progress until it is.
     function unitCount(u) {
-        return chaptersInUnit(u).reduce((a, c) => {
+        return chaptersInUnit(u).filter(c => c.status !== 'planned').reduce((a, c) => {
             const { done, total } = chapterCount(c);
             return { done: a.done + done, total: a.total + total };
         }, { done: 0, total: 0 });
+    }
+    // "Chapter 2 of 3", counted among the open chapters only. A "Soon" page
+    // opened by its address says so instead.
+    function chapterLabel() {
+        if (chapter.status === 'planned') return 'Coming soon';
+        const open = chapters.filter(c => c.status !== 'planned');
+        return 'Chapter ' + (open.indexOf(chapter) + 1) + ' of ' + open.length;
     }
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -142,7 +151,7 @@
         <button class="tb tb-tool" id="btn-listen" onclick="toggleListen()" aria-label="Read this chapter aloud" title="Read this chapter aloud, from where you are. Click any sentence to jump there; arrow keys step; Esc stops."><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.2L12 18.5v-13L7.2 9.5H4z"/><path d="M16 9.2a4 4 0 0 1 0 5.6"/><path d="M18.4 6.6a7.5 7.5 0 0 1 0 10.8"/></svg></span><span class="tb-label">Listen</span></button>
         <button class="tb tb-tool" id="btn-focus" onclick="toggleFocus()" aria-label="Focus mode" title="Focus mode — hide the sidebar"><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4.5h4.5"/><path d="M20 9V4.5h-4.5"/><path d="M4 15v4.5h4.5"/><path d="M20 15v4.5h-4.5"/></svg></span><span class="tb-label">Focus</span></button>
         <span class="tb-sep" aria-hidden="true"></span>
-        <a class="tb tb-tool tb-accent" id="btn-handout" href="${ROOT}${COURSE.handout || 'handout/'}" download aria-label="Download the A3 handout (PDF)" title="Download the A3 handout to print (PDF)"><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 16v3.5h15V16"/></svg></span><span class="tb-label">Handout</span></a>
+        ${handoutButton()}
     </div>
 </header>
 <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
@@ -177,6 +186,43 @@
         });
     }
 
+    // The A3 handouts: one per pair of tools the session can run with (COURSE.tools in
+    // toc.js), or the single COURSE.handout. A pair whose handout is still to come has
+    // handout: null and shows as Soon.
+    function handoutList() {
+        const pairs = COURSE.tools && COURSE.tools.pairs;
+        if (pairs) return Object.keys(pairs).map(id => ({ id, label: pairs[id].label, file: pairs[id].handout }));
+        return COURSE.handout ? [{ id: '', label: '', file: COURSE.handout }] : [];
+    }
+    const HANDOUT_ICON = '<span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 16v3.5h15V16"/></svg></span><span class="tb-label">Handout</span>';
+    // One handout: the button downloads it. More than one: the button opens a short menu.
+    function handoutButton() {
+        const list = handoutList();
+        if (list.length < 2) {
+            return `<a class="tb tb-tool tb-accent" id="btn-handout" href="${ROOT}${(list[0] || {}).file || 'handout/'}" download aria-label="Download the A3 handout (PDF)" title="Download the A3 handout to print (PDF)">${HANDOUT_ICON}</a>`;
+        }
+        const items = list.map(h => h.file
+            ? `<a class="ho-item" href="${ROOT}${esc(h.file)}" download data-pair="${esc(h.id)}"><span class="ho-name">${esc(h.label)}</span><span class="ho-kind">A3 · PDF</span></a>`
+            : `<span class="ho-item ho-soon" data-pair="${esc(h.id)}"><span class="ho-name">${esc(h.label)}</span><span class="soon-badge">Soon</span></span>`).join('');
+        return `<div class="ho-wrap"><button type="button" class="tb tb-tool tb-accent" id="btn-handout" onclick="toggleHandouts()" aria-haspopup="true" aria-expanded="false" aria-controls="ho-panel" title="Download an A3 handout to print (PDF)">${HANDOUT_ICON}</button>` +
+               `<div class="ho-panel" id="ho-panel" hidden><p class="ho-title">A3 handout to print</p>${items}</div></div>`;
+    }
+    window.toggleHandouts = function (force) {
+        const panel = document.getElementById('ho-panel'), btn = document.getElementById('btn-handout');
+        if (!panel || !btn) return;
+        const open = force !== undefined ? force : panel.hidden;
+        if (open) closePopovers('.ho-wrap');
+        panel.hidden = !open;
+        btn.setAttribute('aria-expanded', String(open));
+        if (open) {
+            // mark the reader's own session (workshop.js sets <html data-tools>)
+            const cur = document.documentElement.dataset.tools;
+            panel.querySelectorAll('.ho-item').forEach(i => i.classList.toggle('current', !!cur && i.dataset.pair === cur));
+            const first = panel.querySelector('a.ho-item');
+            if (first) first.focus();
+        }
+    };
+
     function sidebarHTML() {
         let html = '';
         let unit = null;
@@ -199,10 +245,15 @@
         });
 
         // Pinned to the foot of the sidebar: the take-home things.
-        if (COURSE.handout) {
+        const handouts = handoutList();
+        if (handouts.length) {
             html += '<div class="nav-reference">';
             html += '<div class="nav-section-label">Take it with you</div>' +
-                    navItem(`${ROOT}${COURSE.handout}`, '', 'A3 handout (PDF)', '', false);
+                    handouts.map(h => {
+                        const label = 'A3 handout' + (h.label ? ': ' + h.label : '');
+                        return h.file ? navItem(`${ROOT}${h.file}`, '', label + ' (PDF)', '', false)
+                                      : navItem(null, '', label, 'Soon', false);
+                    }).join('');
             html += '</div>';
         }
         return html;
@@ -444,7 +495,7 @@
         const label = document.getElementById('rp-label');
         if (label) {
             label.textContent = chapter
-                ? `Chapter ${chapIdx + 1} of ${chapters.length}`
+                ? chapterLabel()
                 : (CHAP_ID === 'glossary' ? 'Reference' : 'Contents');
         }
     }
@@ -806,6 +857,9 @@
         { wrap: '.tr-wrap', trigger: 'btn-translate',
           isOpen: () => !!document.getElementById('tr-panel'),
           close: () => { const p = document.getElementById('tr-panel'); if (p) p.remove(); } },
+        { wrap: '.ho-wrap', trigger: 'btn-handout',
+          isOpen: () => { const p = document.getElementById('ho-panel'); return !!p && !p.hidden; },
+          close: () => window.toggleHandouts && window.toggleHandouts(false) },
         { wrap: '.search-wrap', trigger: 'btn-search',
           isOpen: () => { const i = document.getElementById('search-input'); return !!i && i.classList.contains('open'); },
           close: () => window.toggleSearch && window.toggleSearch() }
@@ -1089,7 +1143,7 @@
         if (!label) return;
         if (chapter) {
             const { done: d, total } = chapterCount(chapter);
-            label.textContent = 'Chapter ' + (chapIdx + 1) + ' of ' + chapters.length +
+            label.textContent = chapterLabel() +
                 (total ? ' · ' + d + '/' + total + ' done' : '');
         } else {
             label.textContent = (CHAP_ID === 'glossary' || CHAP_ID === 'standards') ? 'Reference' : 'Contents';
@@ -2081,6 +2135,7 @@
         return [...main.querySelectorAll('h1, h2, h3, p, li, figcaption')].filter(el => {
             if (el.closest('.sim, .quiz, svg, .chapter-nav, .rt-bar')) return false;
             if (el.closest('details:not([open])')) return false;
+            if (!el.getClientRects().length) return false;      // hidden: not on screen, not read
             if (el.querySelector('p, li')) return false;
             return el.textContent.trim().length > 1;
         });
@@ -2809,6 +2864,7 @@
         const out = [];
         main.querySelectorAll('h1, h2, h3, h4, p, li, figcaption, summary, .quiz-stem').forEach(el => {
             if (el.closest('svg, .sim, .rt-bar, .tr-panel, .quiz-opt, .quiz-options')) return;
+            if (!el.getClientRects().length) return;            // hidden: not on screen
             if (el.querySelector('p, li, .quiz-stem')) return;
             if (el.textContent.trim().length > 1) out.push(el);
         });

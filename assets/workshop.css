@@ -14,7 +14,7 @@
 
 /* ===== PROMPT CARDS ===== */
 .prompt-card {
-    position: relative;
+    position: relative; container: prompt / inline-size;
     margin: 1.25rem 0;
     padding: 1rem 1.25rem 1rem 1.25rem;
     border-left: 4px solid var(--red);
@@ -29,6 +29,14 @@
 }
 [data-theme="dark"] .prompt-card .prompt-label { color: var(--yellow); }
 .prompt-card .prompt-text { margin: 0; padding-right: 5.5rem; font-size: 1rem; line-height: 1.6; }
+/* A long label wraps before the Copy button instead of running under it */
+.prompt-card .prompt-label { padding-right: 5.5rem; }
+/* On a narrow card (a phone, or large text) the Copy button moves under the prompt, so the
+   label and the prompt can use the card's full width */
+@container prompt (max-width: 30rem) {
+    .prompt-card .prompt-label, .prompt-card .prompt-text { padding-right: 0; }
+    .prompt-card .prompt-copy { position: static; margin-top: 0.75rem; }
+}
 .prompt-card .prompt-note { margin: 0.5rem 0 0; font-size: 0.82rem; color: var(--text-secondary); }
 .prompt-copy {
     position: absolute; top: 0.75rem; right: 0.75rem;
@@ -55,7 +63,7 @@
    The markers sit on the buttons to press, and match the numbers in the
    list of steps beside them. They are decoration for sighted readers: the
    steps carry the same instructions as text, and the image has alt text. */
-figure.marked .marked-wrap { position: relative; }
+figure.marked .marked-wrap { position: relative; container-type: inline-size; }
 figure.marked .marked-wrap img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
 figure.marked .marker {
     position: absolute; transform: translate(-50%, -50%);
@@ -66,6 +74,13 @@ figure.marked .marker {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
     pointer-events: none;
 }
+/* On a narrow screen a marker never grows past a small share of the picture's width, so
+   markers on buttons that sit close together, like the actions in a shortcut, never cover
+   each other. On a wide screen nothing changes: the rem size is the smaller one. */
+figure.marked .marker { width: min(1.9rem, 6.5cqi); height: min(1.9rem, 6.5cqi); font-size: min(0.85rem, 3cqi); }
+/* A tall screenshot (a phone, or a narrow window) at a width that keeps it on one screen.
+   <figure class="shot marked portrait"> — the markers stay on their buttons. */
+figure.shot.portrait .marked-wrap, figure.shot.portrait > img { max-width: 22rem; margin-inline: auto; }
 
 ol.steps { list-style: none; counter-reset: step; padding-left: 0; margin: 1rem 0 1.5rem; }
 ol.steps > li {
@@ -99,6 +114,86 @@ ol.steps > li::before {
    the dark theme keeps the template's colour, which already passes. */
 :root:not([data-theme="dark"]) .video-meta .video-note,
 :root:not([data-theme="dark"]) .callout-example::before { color: #7a6000; }
+
+/* ===== LARGE TEXT ON A SMALL SCREEN =====
+   At the largest text size on a phone, a heading and its Complete button can no longer
+   share a row, and a long web address no longer fits on a line. They wrap instead of
+   running off the page: the button drops under the heading, and an address breaks where
+   it must. At normal sizes nothing here changes how a page looks. */
+.section-head { flex-wrap: wrap; row-gap: 0.4rem; }
+.section-head > h2 { flex: 1 1 12rem; }
+.main h1, .main h2, .main h3 { overflow-wrap: break-word; hyphens: auto; }
+.main p, .main li, .main td, .main figcaption { overflow-wrap: break-word; }
+.main a { overflow-wrap: anywhere; }
+
+/* A variable inside a prompt, drawn as Shortcuts draws it: a blue token */
+.token {
+    display: inline-block; padding: 0 0.45em; border-radius: 5px; line-height: 1.5;
+    background: rgba(20, 80, 158, 0.1); color: var(--blue); font-weight: 600;
+}
+[data-theme="dark"] .token { background: rgba(111, 168, 220, 0.16); color: #8fbde6; }
+.prompt-card .prompt-text.prompt-long { font-size: 0.95rem; }
+
+/* ===== TOOL PAIRS =====
+   The session runs with Flint + Gemini, or with Shortcuts + Claude (COURSE.tools). Content
+   for one pair carries data-for="flint-gemini" or data-for="shortcuts-claude"; <html
+   data-tools> says which pair the reader chose (workshop.js), and the other pair's content
+   is hidden. Listen and Translate skip hidden content. */
+html[data-tools="flint-gemini"] [data-for="shortcuts-claude"],
+html[data-tools="shortcuts-claude"] [data-for="flint-gemini"] { display: none !important; }
+
+/* ===== THE HANDOUT MENU (toolbar, course.js) ===== */
+.ho-wrap { position: relative; }
+.ho-panel {
+    position: absolute; top: calc(100% + 8px); right: 0; z-index: 300; width: 280px; padding: 0.55rem;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+}
+.ho-panel[hidden] { display: none; }
+.ho-title { margin: 0.25rem 0.55rem 0.45rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.ho-item {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    padding: 0.6rem 0.65rem; border-radius: 8px; color: var(--text); font-size: 0.9rem; font-weight: 600; text-decoration: none;
+}
+a.ho-item:hover, a.ho-item:focus-visible { background: var(--bg-nav-hover); color: var(--text); text-decoration: none; }
+a.ho-item:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.ho-kind { flex: none; font-size: 0.7rem; font-weight: 600; color: var(--text-secondary); }
+.ho-item.current .ho-name::after { content: " · your session"; font-weight: 500; color: var(--text-secondary); }
+.ho-soon { color: var(--text-secondary); cursor: default; }
+.ho-soon .soon-badge { margin-left: 0; }
+@media print { .ho-wrap { display: none !important; } }
+
+/* ===== SOON: a link to a page that is not open yet (workshop.js) ===== */
+a.is-soon, a.is-soon:hover { cursor: default; text-decoration: none; }
+.soon-badge {
+    display: inline-block; margin-left: 0.45em; padding: 0.2em 0.55em; vertical-align: middle;
+    border: 1px solid var(--border); border-radius: 999px; background: var(--bg);
+    font-size: 0.62rem; font-weight: 700; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+/* ===== PLACEHOLDERS: content still to come =====
+   A screenshot still to be taken, or a fact still to be checked, looks unfinished on
+   purpose, so it is easy to spot and never mistaken for the real thing. To find every
+   one, search the pages for "shot-todo" and "tbc".
+     <figure class="shot"><div class="shot-todo"><p class="todo-k">Screenshot to come</p>
+       <p class="todo-t">What it will show</p></div><figcaption>…</figcaption></figure>
+     <span class="tbc">TBC</span>   after any statement that still needs checking */
+.shot-todo {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35rem;
+    aspect-ratio: 16 / 10; max-height: 22rem; margin-inline: auto; padding: 1.5rem; text-align: center;
+    border: 2px dashed var(--border); border-radius: 10px;
+    background: repeating-linear-gradient(-45deg, transparent 0 14px, rgba(87, 120, 153, 0.07) 14px 28px), var(--bg-surface);
+}
+.shot-todo.video-todo { aspect-ratio: 16 / 9; margin-bottom: 0.5rem; }
+.shot-todo .todo-k {
+    margin: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red);
+}
+[data-theme="dark"] .shot-todo .todo-k { color: var(--light-red); }
+.shot-todo .todo-t { margin: 0; max-width: 30rem; font-size: 0.9rem; line-height: 1.5; color: var(--text-secondary); }
+.tbc {
+    display: inline-block; padding: 0.05em 0.45em; border-radius: 4px; vertical-align: 0.1em;
+    background: var(--yellow); color: #002a42; font-size: 0.7em; font-weight: 700; letter-spacing: 0.06em; line-height: 1.4;
+}
 
 @media print {
     .prompt-copy { display: none; }

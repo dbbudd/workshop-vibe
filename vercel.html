@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vercel: getting started — Bring a Barrier, Leave With a Build</title>
+<meta name="description" content="A first-draft guide to publishing a web app with Vercel, straight from a GitHub repository.">
+<link rel="stylesheet" href="assets/course.css?v=1">
+<link rel="stylesheet" href="assets/workshop.css?v=1">
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
+</head>
+<body data-root="" data-chapter="vercel">
+
+<!-- A draft. Screenshots still to come are .shot-todo boxes; facts still to check carry a TBC tag.
+     Checked against Vercel's own docs, October 2026 (vercel.com/docs): Hobby plan terms, Add New… → Project,
+     Import Git Repository, the "Other" framework preset for plain HTML, preview deployments, Shareable Links,
+     Domains, Deployment Protection. -->
+<main class="main" role="main">
+
+    <section id="overview">
+        <div class="chapter-eyebrow">App publishing · Getting started</div>
+        <h1>Vercel</h1>
+        <p class="lead">Vercel publishes web apps from a GitHub <span class="term">repository</span>. Every change you push to its main branch goes live by itself, and a change on a separate branch gets its own preview link first.</p>
+
+        <div class="chapter-meta"></div>
+
+        <div data-progression></div>
+
+        <div class="two-col">
+            <div>
+                <h4>Best for</h4>
+                <p>A tool that has grown past one page, such as a web app Claude Code built. A plain index.html works too.</p>
+            </div>
+            <div>
+                <h4>Start here</h4>
+                <p><a href="https://vercel.com" target="_blank" rel="noopener noreferrer"><strong>vercel.com</strong></a><br>Sign up with your GitHub account. The free Hobby plan is for non-commercial, personal use: ask Vercel whether a school tool counts. <span class="tbc">TBC</span></p>
+            </div>
+        </div>
+
+        <div class="callout callout-note" data-label="Draft">
+            <p>This guide is a first draft. Screenshots marked “to come” are still to be taken, and anything tagged <span class="tbc">TBC</span> still needs checking.</p>
+        </div>
+    </section>
+
+    <section id="sign-up" data-kind="Practice" data-track>
+        <h2>Exercise 1: Sign up with GitHub</h2>
+
+        <figure class="shot marked">
+            <div class="marked-wrap">
+                <img src="images/publishing/vercel-sign-up.jpg" alt="Vercel’s sign-up page: Your first deploy is just a sign-up away. Buttons to continue with Google, GitHub, ChatGPT or Apple, and a link to continue with email." loading="lazy">
+                <span class="marker" style="left:19.2%;top:58.0%" aria-hidden="true">2</span>
+            </div>
+            <figcaption><b>Figure 1</b> — Vercel’s sign-up page.</figcaption>
+        </figure>
+        <ol class="steps">
+            <li>Go to <a href="https://vercel.com" target="_blank" rel="noopener noreferrer"><strong>vercel.com</strong></a> and choose <strong>Sign Up</strong>.</li>
+            <li>Continue with <strong>GitHub</strong>, so Vercel can see your repositories.</li>
+        </ol>
+    </section>
+
+    <section id="import" data-kind="Practice" data-track>
+        <h2>Exercise 2: Import your repository</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The import page, with your repository and Import marked.</p></div>
+            <figcaption><b>Figure 2</b> — Importing a repository.</figcaption>
+        </figure>
+        <ol class="steps" style="counter-reset: step 2">
+            <li>Choose <strong>Add New…</strong>, then <strong>Project</strong>.</li>
+            <li>Under <strong>Import Git Repository</strong>, find your tool’s repository and press <strong>Import</strong>. Not listed? Choose <strong>Configure GitHub App</strong>, and let Vercel see it.</li>
+            <li>Press <strong>Deploy</strong>. For a plain index.html, leave the settings as they are: Vercel chooses <strong>Other</strong>, and that works.</li>
+        </ol>
+    </section>
+
+    <section id="live" data-kind="Practice" data-track>
+        <h2>Exercise 3: Open your link</h2>
+
+        <p>When it finishes, Vercel gives your app an address made from the project’s name, ending in <em>vercel.app</em>.</p>
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">A finished deployment, with its link.</p></div>
+            <figcaption><b>Figure 3</b> — Your app, live.</figcaption>
+        </figure>
+        <ol class="steps" style="counter-reset: step 5">
+            <li>Open the link and try your tool.</li>
+            <li>Send it to a colleague to test.</li>
+        </ol>
+    </section>
+
+    <section id="change" data-kind="Practice" data-track>
+        <h2>Exercise 4: Change it, then preview it</h2>
+
+        <p>Push a change to the main branch, and Vercel puts it live straight away. Push it to another branch instead, and Vercel makes a preview link, so you can test it before it replaces the live version.</p>
+        <div class="callout callout-note">
+            <p>A preview link asks for a Vercel login at first. To let a colleague test one, make a Shareable Link for it. The free plan includes them.</p>
+        </div>
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">A preview link for a change, beside the live version.</p></div>
+            <figcaption><b>Figure 4</b> — A preview, before it goes live.</figcaption>
+        </figure>
+    </section>
+
+    <section id="further" data-kind="Orientation" data-track>
+        <h2>Push it further</h2>
+
+        <p>Ideas for when your first app is live.</p>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Use your own web address: in your project, open Settings, then Domains, and choose Add Domain.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Ask Claude Code to set up the project for Vercel.</p>
+        </div>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Keep a project to yourself while you work on it: in Settings, then Deployment Protection, turn on Vercel Authentication for All Deployments.</p>
+        </div>
+        <h3>Videos</h3>
+        <p>Videos to come. Each one will load only when you press play.</p>
+
+        <div class="video-list">
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Deploying from GitHub to Vercel.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Preview links, and when to use them.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Using your own web address on Vercel.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+        </div>
+    </section>
+
+</main>
+
+<script src="assets/toc.js?v=1"></script>
+<script src="assets/course.js?v=1"></script>
+<script src="assets/workshop.js?v=1"></script>
+</body>
+</html>
