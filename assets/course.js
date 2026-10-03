@@ -1451,10 +1451,14 @@
 
         host.classList.add('progression');
         host.style.setProperty('--unit-h', u.hue);
+        // A unit whose chapters are a list, not a sequence (sequence: false in toc.js, such as
+        // tools in alphabetical order) has nothing "done" or "ahead": only the current one is
+        // marked. Its heading says what the list is, in the unit's own words (strip).
+        const seq = u.sequence !== false;
         host.innerHTML =
-            `<div class="progression-title">${esc(u.label)} — how the ideas build</div><ol>` +
+            `<div class="progression-title">${esc(u.label)} — ${esc(u.strip || 'how the ideas build')}</div><ol>` +
             steps.map((c, i) => {
-                const state = i < at ? 'done' : (i === at ? 'here' : 'ahead');
+                const state = !seq ? (i === at ? 'here' : 'other') : (i < at ? 'done' : (i === at ? 'here' : 'ahead'));
                 // The number column is narrow; an unnumbered chapter (the unit
                 // overview) gets a short marker rather than its full title.
                 const { num } = splitTitle(c.title);

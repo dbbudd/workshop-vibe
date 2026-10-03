@@ -19,6 +19,13 @@
      status    'ready', or 'planned' for a page that is not open yet: the sidebar
                shows it as Soon, links to it on other pages switch off (workshop.js),
                and its sections don't count toward progress
+
+   unit fields
+     sequence  false when the unit's pages are a list, not a sequence (the tools, in
+               alphabetical order): the progression strip then marks only the page you
+               are on, instead of what is done and what is ahead
+     strip     the words after the unit's name in the progression strip's heading
+               (default: "how the ideas build")
    ============================================================= */
 window.COURSE = {
     title: 'Bring a Barrier, Leave With a Build',
@@ -47,7 +54,7 @@ window.COURSE = {
 
     units: [
         { id: 'session', label: 'The session', short: 'Session', hue: 210, needs: [] },
-        { id: 'tools', label: 'Getting started with the tools', short: 'Tools', hue: 355, needs: ['session'] },
+        { id: 'tools', label: 'Getting started with the tools', short: 'Tools', hue: 355, needs: ['session'], sequence: false, strip: 'the question each guide answers' },
         { id: 'publishing', label: 'App publishing', short: 'Publishing', hue: 40, needs: ['tools'] }
     ],
 
@@ -61,8 +68,40 @@ window.COURSE = {
             question: 'What problems do you want to solve?', status: 'ready'
         },
         {
+            id: 'shortcuts', file: 'shortcuts.html', unit: 'tools',
+            title: '1 Apple Shortcuts',
+            summary: 'Round 1 of the Shortcuts and Claude session. Describe a shortcut in plain words and let Apple Intelligence build it, then check it, tweak it, run it and share it. The worked example, Summarise, turns a meeting transcript into notes. A draft.',
+            keywords: 'apple shortcuts apple intelligence describe a shortcut describe a change tweak use model on-device summarise transcript meeting notes automation ipad iphone mac icloud link ai',
+            sims: [], time: '', sections: 6, standards: [], kind: 'Lesson',
+            question: 'What could run itself, every lesson?', status: 'planned'
+        },
+        {
+            id: 'chatgpt', file: 'chatgpt.html', unit: 'tools',
+            title: '2 ChatGPT',
+            summary: 'The third rung. In the ChatGPT app for Mac, build the same barrier from your prompt spine as an HTML file you can preview beside the chat, change it by asking for a new file, and publish it for students with GitHub Pages. A draft.',
+            keywords: 'chatgpt openai desktop app mac chat work stay in chat html file preview download file update the html file github pages data controls temporary chat hong kong third rung prompt spine',
+            sims: [], time: '20 min', sections: 4, standards: [], kind: 'Lesson',
+            question: 'What changes when a different builder reads the same prompt spine?', status: 'planned'
+        },
+        {
+            id: 'claude', file: 'claude.html', unit: 'tools',
+            title: '3 Claude',
+            summary: 'Round 2 of the Shortcuts and Claude session. In the Claude desktop app, build a tool from your prompt spine as an artifact beside the chat, test it, publish it and share the link. A draft.',
+            keywords: 'claude anthropic desktop app mac artifact prompt spine three words app html javascript share anyone with the link copy code round 2 shortcuts session',
+            sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
+            question: 'What does your barrier look like as a screen students use?', status: 'planned'
+        },
+        {
+            id: 'claude-code', file: 'claude-code.html', unit: 'tools',
+            title: '4 Claude Code',
+            summary: 'The third rung. Build a tool bigger than one screen with Claude Code, Anthropic’s coding agent, then publish it. A first draft.',
+            keywords: 'claude code anthropic agent coding folder website index.html third rung publish',
+            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
+            question: 'What can you build when the tool stops being the limit?', status: 'planned'
+        },
+        {
             id: 'flint', file: 'flint.html', unit: 'tools',
-            title: '1 Flint K12',
+            title: '5 Flint K12',
             summary: 'Round 1. Log in to Flint, make an interactive or an explainer from your own materials, and push it further.',
             keywords: 'flint flintk12 sparky live simulation video explainer interactive activity microsoft sign in',
             sims: [], time: '15 min', sections: 5, standards: [], kind: 'Lesson',
@@ -70,43 +109,11 @@ window.COURSE = {
         },
         {
             id: 'gemini', file: 'gemini.html', unit: 'tools',
-            title: '2 Gemini',
+            title: '6 Gemini',
             summary: 'Round 2. Build a single-screen tool in Gemini Canvas from your prompt spine, test it, share it, and push it further.',
             keywords: 'gemini canvas google vibe coding app html javascript share classroom drive prompt spine',
             sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
             question: 'What can you build when the behaviour is yours to design?', status: 'ready'
-        },
-        {
-            id: 'shortcuts', file: 'shortcuts.html', unit: 'tools',
-            title: '3 Apple Shortcuts',
-            summary: 'Round 1 of the Shortcuts and Claude session. Describe a shortcut in plain words and let Apple Intelligence build it, then check it, tweak it, run it and share it. The worked example, Summarise, turns a meeting transcript into notes. A draft.',
-            keywords: 'apple shortcuts apple intelligence describe a shortcut describe a change tweak use model on-device summarise transcript meeting notes automation ipad iphone mac icloud link ai',
-            sims: [], time: '', sections: 6, standards: [], kind: 'Lesson',
-            question: 'What could run itself, every lesson?', status: 'planned'
-        },
-        {
-            id: 'claude', file: 'claude.html', unit: 'tools',
-            title: '4 Claude',
-            summary: 'Round 2 of the Shortcuts and Claude session. In the Claude desktop app, build a tool from your prompt spine as an artifact beside the chat, test it, publish it and share the link. A draft.',
-            keywords: 'claude anthropic desktop app mac artifact prompt spine three words app html javascript share anyone with the link copy code round 2 shortcuts session',
-            sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
-            question: 'What does your barrier look like as a screen students use?', status: 'planned'
-        },
-        {
-            id: 'chatgpt', file: 'chatgpt.html', unit: 'tools',
-            title: '5 ChatGPT',
-            summary: 'The third rung. In the ChatGPT app for Mac, build the same barrier from your prompt spine as a code block you can preview, then publish it for students with GitHub Pages. A draft.',
-            keywords: 'chatgpt openai desktop app mac chat code block preview download code edit with ai github pages data controls temporary chat hong kong third rung prompt spine',
-            sims: [], time: '', sections: 4, standards: [], kind: 'Lesson',
-            question: 'What changes when a different builder reads the same prompt spine?', status: 'planned'
-        },
-        {
-            id: 'claude-code', file: 'claude-code.html', unit: 'tools',
-            title: '6 Claude Code',
-            summary: 'The third rung. Build a tool bigger than one screen with Claude Code, Anthropic’s coding agent, then publish it. A first draft.',
-            keywords: 'claude code anthropic agent coding folder website index.html third rung publish',
-            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
-            question: 'What can you build when the tool stops being the limit?', status: 'planned'
         },
         {
             id: 'xcode', file: 'xcode.html', unit: 'tools',
@@ -127,7 +134,7 @@ window.COURSE = {
         {
             id: 'vercel', file: 'vercel.html', unit: 'publishing',
             title: '2 Vercel',
-            summary: 'Publish a web app with Vercel from a GitHub repository, with a preview link for every change. A first draft.',
+            summary: 'Publish a web app with Vercel from a GitHub repository: changes to the main branch go live by themselves, and other branches get a preview link first. A draft.',
             keywords: 'vercel deploy web app github preview link hosting',
             sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
             question: 'How does a growing tool stay live while you change it?', status: 'planned'

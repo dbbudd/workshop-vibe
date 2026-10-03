@@ -332,7 +332,7 @@ by adding it chapter by chapter.
 | Feature | What the student can do | Where it lives |
 |---|---|---|
 | Anchoring phenomenon | Each unit opens with one real case that the whole unit explains | Unit overview |
-| How the ideas build | See each chapter's question in order, with links, at the top of every chapter and overview | `data-progression` |
+| How the ideas build | See each chapter's question in order, with links, at the top of every chapter and overview. A unit with `sequence: false` in `toc.js` (the tools, in alphabetical order) is a list, not an argument: only the current page is marked, the heading uses the unit's own `strip` words, and nothing is drawn as done or ahead. | `data-progression` |
 | Looking back and Where this goes next | Each chapter states the earlier fact it needs, and the next idea it leads to | `callout-recall`, `callout-ahead` |
 | Key idea and Common misconception | The one rule to remember, and the wrong idea stated and corrected | `callout-key`, `callout-misconception` |
 | Predict before reveal | Every interactive asks for a prediction before it shows a result | `sims/` |
@@ -590,7 +590,8 @@ Nothing else has a shadow. Separation comes from white space, borders and tints.
 - **Glossary term**: a light tint with a dashed teal underline; hover or tap shows the definition
   in a navy pop-up.
 - **How the ideas build**: a 12px-rounded surface panel listing the unit's chapters and their
-  questions, with the current chapter highlighted.
+  questions, with the current chapter highlighted. For a list that is not a sequence, the other
+  chapters are all drawn the same (no dimming), and the heading says what the list is.
 - **Unit overview cards**: standards cards, learning-target groups with a square-bullet checklist
   and chapter pills, and activity cards linked to each interactive.
 
@@ -674,6 +675,7 @@ SCAMPER verbs, only appear in large type, where 3:1 is the contrast needed.
 | Loop ring | An SVG ring with HTML labels, sized to its own width; it draws once as it scrolls into view |
 | Live fern | The film's four rules drawn on a canvas in the page's ink colour, redrawn when the theme changes |
 | Tool switch | "Your session's tools" on the cover: two toggle buttons (aria-pressed) choosing Flint + Gemini or Shortcuts + Claude. Parts that name a tool carry `data-for`; the other pair's are hidden, and Listen and Translate skip them |
+| Device checklist | "What your device needs" on the cover, under the sign-in note, for the Shortcuts + Claude session only (`data-for`). A top rule, then a grid of short items, each a small red capital label (a `<b>` followed by a space, so Listen reads it cleanly) over one plain line. It wraps to one column on a phone and scales with the text size. | `.needs` |
 | Handout menu | With two handouts, the toolbar's Handout button opens a short menu (in the same pop-up family as Text and Progress): one row per pair, the reader's own marked, a missing handout shown as Soon |
 
 **Ribbons.** Three HKIS ribbons, on the cover, the "If the machine recurses…" card and the closing card. Each one's

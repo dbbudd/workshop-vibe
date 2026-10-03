@@ -8,18 +8,20 @@ Published with GitHub Pages at **https://dbbudd.github.io/workshop-vibe/**.
 
 ## Pages
 
+The tools are listed in alphabetical order, as they are in the site's menu (`COURSE.chapters` in `assets/toc.js`); the publishing guides keep their order, easiest first.
+
 | Page | What is on it |
 |---|---|
 | `index.html` | **The session**, laid out like a magazine. The film's boards are rebuilt in HTML and CSS: the cover, the idea (recursion), why now (MIT), so we teach, the question and the loop. Then come the nine steps from the warm-up to Build 02, each build step with buttons into the Flint or Gemini guide, and where this goes. |
+| `shortcuts.html` | **Apple Shortcuts** (draft). Round 1 of the Shortcuts + Claude session: describe a shortcut and let Apple Intelligence build it, check and tweak it (the worked example, Summarise, turns a meeting transcript into notes), run it, describe a change, and share it. |
+| `chatgpt.html` | **ChatGPT** (draft). The third rung, in the ChatGPT app for Mac: build from the prompt spine as an HTML file with a preview pane beside the chat, test it, publish it with GitHub Pages, push it further by asking for a new file. Tested in the real app on 3 October 2026. Carries a Hong Kong availability warning. |
+| `claude.html` | **Claude** (draft). Round 2 of the Shortcuts + Claude session, in the Claude desktop app: build from the prompt spine as an artifact, test it, publish it and share the link, push it further. |
+| `claude-code.html` | **Claude Code** (draft). The third rung, in the Code tab of the Claude desktop app: a tool bigger than one screen, built in a folder, then published. |
 | `flint.html` | **Flint K12.** Round 1, as getting-started exercises: log in, make an interactive, make an explainer video, turn it into an activity, and videos to push further. |
 | `gemini.html` | **Gemini.** Round 2: open Canvas, build from the prompt spine, the three words, test and share, and videos to push further. |
-| `claude.html` | **Claude** (draft). Round 2 of the Shortcuts + Claude session, in the Claude desktop app: build from the prompt spine as an artifact, test it, publish it and share the link, push it further. |
-| `chatgpt.html` | **ChatGPT** (draft). The third rung, in the ChatGPT app for Mac: build from the prompt spine as a code block with Preview, test it, publish it with GitHub Pages, push it further. Carries a Hong Kong availability warning. |
-| `claude-code.html` | **Claude Code** (draft). The third rung, in the Code tab of the Claude desktop app: a tool bigger than one screen, built in a folder, then published. |
-| `shortcuts.html` | **Apple Shortcuts** (draft). Automate a classroom routine, add an AI step, share it. |
 | `xcode.html` | **Xcode** (draft). Build the tool as a real iPad app with the agents in Xcode 27, run it in Device Hub or on your own iPad, get it to students (privately through Apple School Manager, or the App Store). |
 | `github-pages.html` | **App publishing: GitHub Pages** (draft). Publish a tool as a free website from a repository, then keep it up to date with GitHub Desktop. |
-| `vercel.html` | **App publishing: Vercel** (draft). Publish a web app from GitHub, with a preview link for every change. |
+| `vercel.html` | **App publishing: Vercel** (draft). Publish a web app from GitHub: changes to the main branch go live by themselves, and other branches get a preview link first. |
 | `app-store.html` | **App publishing: App Store** (draft). The Apple Developer Program, App Store Connect, TestFlight and App Review. |
 | `handout/` | The two-page colour A3 handout (PDF). The toolbar's red **Handout** button downloads it. |
 

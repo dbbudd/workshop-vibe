@@ -246,6 +246,18 @@
 .mag .cover .dek { max-width: 34rem; }
 .mag .signin { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin: 1.5rem 0 2.25rem; }
 .mag .signin > p { margin: 0; font: 700 0.92rem/1.3 var(--m-label); color: var(--m-ink); }
+/* What a device needs: a short checklist under the sign-in note. Each item is a small red label over one plain line. */
+.mag .needs { margin: -0.75rem 0 2.25rem; }
+.mag .needs-k { margin: 0 0 0.6rem; }
+.mag .needs > ul {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr)); gap: 1rem 1.75rem;
+    list-style: none; padding: 1rem 0 0; margin: 0; border-top: 1px solid var(--m-line);
+}
+.mag .needs > ul > li { margin: 0; font-size: 0.9rem; line-height: 1.5; }
+.mag .needs > ul > li > b {
+    display: block; margin-bottom: 0.15rem; font: 800 0.7rem/1.3 var(--m-label);
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--m-red-text);
+}
 .mag .leave-k { margin-top: 0; }
 .mag .leave {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 1.25rem 1.75rem;

@@ -16,7 +16,14 @@
      The worked example is the presenter's own Summarise shortcut (Demo folder). Names are as
      Shortcuts shows them on macOS 27: Describe a shortcut, Describe a change, Get Clipboard, Wait,
      Use Model, On-Device, Set Variable, Create Note, Follow Up, Copy iCloud Link, Pin in Menu Bar,
-     Add Keyboard Shortcut, Add to Home Screen. -->
+     Add Keyboard Shortcut, Add to Home Screen. The four models (On-Device, Cloud, Cloud Pro, Extension
+     Model) are as Apple's own page names them (support.apple.com/guide/shortcuts-mac), checked 3 October
+     2026. The presenter's Summarise was read from the Shortcuts database on 3 October 2026: its third action is
+     is.workflow.actions.askllm (Use Model) with the model stored as "Apple Intelligence on Device". Apple calls
+     the on-device model a ~3-billion-parameter foundation model, but does not say in so many words that the
+     Shortcuts option is the same thing, so the page says "Apple Intelligence's on-device model".
+     Figures 3 and 4 were taken in the real app on 3 October 2026 (macOS 27): selecting a shortcut shows
+     a card and a Describe a change box; Summarise was run on the practice transcript. Videos are independent creators', chosen from their descriptions: not yet watched through. -->
 <main class="main" role="main">
 
     <section id="overview">
@@ -35,12 +42,12 @@
             </div>
             <div>
                 <h4>Start here</h4>
-                <p>The <strong>Shortcuts</strong> app, on a Mac, iPad or iPhone with Apple Intelligence turned on. Describing a shortcut also needs an internet connection.</p>
+                <p>The <strong>Shortcuts</strong> app, on a Mac or iPad with an M1 chip or later, or an iPhone 15 Pro or later, with Apple Intelligence turned on. Describing a shortcut needs macOS 27, iPadOS 27 or iOS 27, and an internet connection. Summarise’s Use Model step runs on the device itself.</p>
             </div>
         </div>
 
         <div class="callout callout-key" data-label="Before the session">
-            <p>Open Shortcuts, press <strong>+</strong>, and describe a shortcut once. The first time, Shortcuts may need to prepare it.</p>
+            <p>Open Shortcuts, press <strong>+</strong>, and describe a shortcut once. The first time, Shortcuts may need to prepare it. Check every device you will use: Apple Intelligence is on, and the device language and Siri language are set to the same supported language.</p>
         </div>
 
         <div class="callout callout-note" data-label="Draft">
@@ -81,7 +88,7 @@
         </ul>
 
         <div class="callout callout-note">
-            <p>There is a daily limit on describing shortcuts. If you reach it, build the shortcut by hand: search the list of actions for each one in Figure 2, and add them in order.</p>
+            <p>There is a daily limit on describing shortcuts. If you reach it, build the shortcut by hand: search the list of actions for each one in Figure 2, and add them in order. Describe a shortcut also doesn’t work in every language. If it says it doesn’t support your language, describe the shortcut in English.</p>
         </div>
     </section>
 
@@ -146,11 +153,29 @@ Base everything on the transcript. Where the transcript is unclear, leave it out
     <section id="run" data-kind="Practice" data-track>
         <h2>Exercise 3: Run it on a transcript</h2>
 
-        <p>Use the transcript of a real meeting, or a short one you write for practice.</p>
+        <p>Use the practice transcript below, or the transcript of a real meeting. The practice one has made-up names.</p>
+
+        <div class="prompt-card" data-keep-lines>
+            <span class="prompt-label">A practice transcript</span>
+            <p class="prompt-text prompt-long">Priya: Okay, let’s start. Two things today: the maths checklist tool, and the Grade 7 assessment dates.<br>
+            Marcus: On the tool, I tried a rough version with 7B on Tuesday. The students who usually lose their place in a multi-step problem used it, and most of them finished the whole problem.<br>
+            Aiko: That matches what I saw. The step-by-step view helped them. A few asked if it could read each step aloud.<br>
+            Priya: So are we agreed to pilot it in 7B for two weeks?<br>
+            Marcus: Yes. And we only use it in the first ten minutes of a lesson, so it doesn’t replace the thinking.<br>
+            Aiko: Agreed. I’ll add the read-aloud button, and send everyone the new link by next Friday.<br>
+            Priya: Good. Marcus, can you collect feedback from the 7B students at the end of week one?<br>
+            Marcus: Yes, a short form. I’ll share the results at our next meeting.<br>
+            Aiko: One open question: should students use it on their own iPads, or only on the projector? I don’t think we settled that.<br>
+            Priya: Let’s leave it for now, and decide after the feedback.<br>
+            Marcus: Someone mentioned the Grade 8 team might want to try it as well, but I’m not sure who.<br>
+            Priya: We’ll see. On assessment dates, the unit test is moving to the week after the break, so I’ll email parents about that on Monday.<br>
+            Aiko: Thanks. That’s everything from me.<br>
+            Priya: Great, thanks everyone.</p>
+        </div>
 
         <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The finished note in Notes: the title, the date, Key Points, Discussion and Actions.</p></div>
-            <figcaption><b>Figure 3</b> — What Summarise makes.</figcaption>
+            <img src="images/shortcuts/summarise-note.jpg" width="1204" height="994" alt="A note in the Notes app, made by Summarise from the practice transcript. A title, Meeting Notes: Maths Checklist Tool and Grade 7 Dates, and the date. Then Key Points, five bullets; Discussion, two short paragraphs; and Actions, four bullets: Aiko will add the read-aloud button and send the new link by next Friday, Marcus will collect feedback from 7B students at the end of week one, Priya will email parents about the unit test on Monday, and a last line, None recorded for the iPad or projector decision." loading="lazy">
+            <figcaption><b>Figure 3</b> — What Summarise made from the practice transcript, in the Transcribed folder in Notes. Yours will be a little different each time.</figcaption>
         </figure>
 
         <ol class="steps" style="counter-reset: step 8">
@@ -162,6 +187,16 @@ Base everything on the transcript. Where the transcript is unclear, leave it out
         <div class="callout callout-note">
             <p>Make the Transcribed folder in Notes before you run the shortcut, or choose a folder you already have.</p>
         </div>
+        <div class="callout callout-key" data-label="Check the notes">
+            <p>Read the notes against the practice transcript, as you would check anything an AI makes. When we ran it on 3 October 2026:</p>
+            <ul>
+                <li><strong>Actions:</strong> all three were right. Aiko, Marcus and Priya each agreed to something, and the notes give the time.</li>
+                <li><strong>Left open:</strong> the iPads or projector question is in the notes as undecided. But the notes also say “a debate arose”, and nobody debated it.</li>
+                <li><strong>Unclear:</strong> nobody knew who in the Grade 8 team was interested. The prompt says to leave out what is unclear, but the notes kept it, and added that “uncertainty remained about who would lead the effort”.</li>
+                <li><strong>Invented:</strong> the notes say the pilot starts “Tuesday”. Nobody said that: Marcus had tried a rough version on Tuesday.</li>
+            </ul>
+            <p>Your notes will not be the same. Give it less to work with, and it still fills every section: when we gave it a single sentence, it wrote a Discussion about a debate that never happened.</p>
+        </div>
         <div class="callout callout-key">
             <p>On-Device means the model runs on your own device, with no internet connection needed, so the transcript stays on it. Still, check the notes against what was said before you share them.</p>
         </div>
@@ -172,14 +207,18 @@ Base everything on the transcript. Where the transcript is unclear, leave it out
 
         <p>You can tweak a shortcut with words, too. Describe one change, and Shortcuts makes it. It is the session’s Push it step: substitute, combine or eliminate one thing. Then check what changed, as in Exercise 2.</p>
 
-        <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">Summarise open, with a change typed in the box at the bottom, marked 12.</p></div>
-            <figcaption><b>Figure 4</b> — Describing a change.</figcaption>
+        <figure class="shot marked portrait">
+            <div class="marked-wrap">
+                <img src="images/shortcuts/describe-change.jpg" width="760" height="1364" alt="The Shortcuts app with Summarise selected. At the top, the + and share buttons, an Edit button and a search box. A large pink card with the Notes icon and a play button says: Creates a note from clipboard text using Apple Intelligence on device. At the bottom is an empty box that says Describe a change." loading="lazy">
+                <span class="marker" style="left:87.5%;top:91.5%" aria-hidden="true">12</span>
+                <span class="marker" style="left:31.8%;top:9%" aria-hidden="true">13</span>
+            </div>
+            <figcaption><b>Figure 4</b> — Summarise, selected. The card says what it does, and the box at the bottom takes your change. <strong>Edit</strong> opens the actions.</figcaption>
         </figure>
 
         <ol class="steps" style="counter-reset: step 11">
-            <li>Open Summarise. In the box at the bottom, type one change, such as one of these. <span class="tbc">TBC</span></li>
-            <li>Check the actions it changed, then run it again on your transcript.</li>
+            <li>Select Summarise in your library. Shortcuts shows a card that says what it does. In the box at the bottom, <strong>Describe a change</strong>, type one change, such as one of these. <span class="tbc">TBC</span></li>
+            <li>Press <strong>Edit</strong> to check the actions it changed, then run it again on your transcript.</li>
         </ol>
 
         <div class="prompt-card">
@@ -222,17 +261,29 @@ Base everything on the transcript. Where the transcript is unclear, leave it out
 
         <ul>
             <li>Turn on <strong>Follow Up</strong> in Use Model. You see the model’s answer, and can ask for changes, before it goes to the next action.</li>
-            <li>For a long transcript, or a harder job, choose a cloud model instead of On-Device. Shortcuts’ own help describes these as large models on Apple’s Private Cloud Compute servers, for complex requests. There is a daily limit on them, and Cloud Pro needs iCloud+.</li>
+            <li>For a long transcript, or a harder job, choose <strong>Cloud</strong> (large models on Apple’s Private Cloud Compute servers) or <strong>Cloud Pro</strong> (for longer, more complex tasks) instead of On-Device. There is a daily limit on them, and Cloud Pro needs iCloud+. The <strong>Extension Model</strong> option uses ChatGPT, which is run by OpenAI, so check HKIS’s rules before you send it anything about students.</li>
             <li>On a Mac, use <strong>Pin in Menu Bar</strong> or <strong>Add Keyboard Shortcut</strong>, in Shortcut Details. On an iPad or iPhone, use <strong>Add to Home Screen</strong>.</li>
         </ul>
 
+        <div class="resource-list">
+            <a class="btn-external" href="https://support.apple.com/guide/shortcuts-mac/use-apple-intelligence-in-shortcuts-mchl91750563/mac" target="_blank" rel="noopener noreferrer">
+                <span class="btn-external-icon" aria-hidden="true">&#10140;</span>
+                <span><strong>Use Apple Intelligence in Shortcuts on Mac</strong><small>Apple’s own guide to the Use Model action, with the four model choices and Follow Up</small></span>
+                <span class="btn-external-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
+
         <h3>Videos</h3>
-        <p>Videos to come. Each one will load only when you press play.</p>
+        <p>Each video loads only when you press play. They are from independent creators, not from Apple.</p>
 
         <div class="video-list">
-            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Describe a shortcut: let Shortcuts build it for you.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
-            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Use Model: Apple Intelligence in your shortcuts.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
-            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Running shortcuts from the menu bar, the Home Screen and Siri.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="video" data-video="ZdK_VuxeE7o" data-title="How to Use Apple Intelligence to Describe a Shortcut in iOS 27 &amp; macOS 27 Golden Gate" data-source="360 Reader" data-note="August 2026 · 3:04"></div><p class="video-why">Three minutes on Describe a Shortcut, on an iPhone and on a Mac: you explain what you want in plain language, and Apple Intelligence builds the workflow.</p></div>
+
+            <div class="video-item"><div class="video" data-video="FANj0O-WJrs" data-title="How To Use AI In Mac Shortcuts" data-source="MacMost" data-note="October 2025 · 14:56"></div><p class="video-why">On a Mac, feeds information into an AI model in Shortcuts, then does something with its answer. It was made for macOS 26, so some of its model names are older than the ones on this page.</p></div>
+
+            <div class="video-item"><div class="video" data-video="uE24TMFtC2U" data-title="iOS 27 Shortcuts: Just Tell Your iPhone What to Do" data-source="EZ and Simple" data-note="September 2026 · 9:17"></div><p class="video-why">Ten shortcuts made by describing them on an iPhone. Some run by themselves, and some start with one tap from the Home Screen or Control Center. It needs Apple Intelligence.</p></div>
+
+            <div class="video-item"><div class="video" data-video="kLs6RUPkrw4" data-title="Shortcuts will never be the same..." data-source="Stephen Robles" data-note="June 2026 · 14:35"></div><p class="video-why">A tour of what changed in Shortcuts in iOS 27: shortcuts built by AI from a description, new notification and screenshot automations, and storage that syncs through iCloud.</p></div>
         </div>
     </section>
 

@@ -1727,7 +1727,9 @@ figure.shot.pair figcaption { grid-column: 1 / -1; }
 /* ===== PROGRESSION STRIP =====
    Drawn from the `question` field on each chapter in a unit. Shows the unit's
    argument in order with the current step marked, so a reader can always see
-   what has been established and what is still coming. */
+   what has been established and what is still coming. A unit with `sequence: false`
+   in toc.js is a list, not an argument: only the current chapter is marked (li.here),
+   and the rest (li.other) are all drawn the same. */
 .progression {
     border: 1px solid var(--border); border-radius: 12px;
     background: var(--bg-surface); padding: 1rem 1.15rem; margin: 1.75rem 0 2rem;
