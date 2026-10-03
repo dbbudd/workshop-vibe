@@ -84,24 +84,16 @@ window.COURSE = {
             question: 'What changes when a different builder reads the same prompt spine?', status: 'ready'
         },
         {
-            id: 'claude', file: 'claude.html', unit: 'tools',
-            title: '3 Claude',
-            summary: 'Round 2 of the Shortcuts and Claude session. In the Claude desktop app, build a tool from your prompt spine as an artifact beside the chat, test it, publish it and share the link. A draft.',
-            keywords: 'claude anthropic desktop app mac artifact prompt spine three words app html javascript share anyone with the link copy code round 2 shortcuts session',
-            sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
-            question: 'What does your barrier look like as a screen students use?', status: 'planned'
-        },
-        {
             id: 'claude-code', file: 'claude-code.html', unit: 'tools',
-            title: '4 Claude Code',
-            summary: 'The third rung. Build a tool bigger than one screen with Claude Code, Anthropic’s coding agent, then publish it. A first draft.',
-            keywords: 'claude code anthropic agent coding folder website index.html third rung publish',
-            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
+            title: '3 Claude Code',
+            summary: 'Round 2 of the Shortcuts and Claude session. In the Code tab of the Claude desktop app, build a tool from your prompt spine as files in a folder, see it running, change it by asking, and publish it. A draft.',
+            keywords: 'claude code coding agent claude desktop app code tab round 2 shortcuts session prompt spine folder index.html preview manual permission mode github pages publish hong kong',
+            sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
             question: 'What can you build when the tool stops being the limit?', status: 'planned'
         },
         {
             id: 'flint', file: 'flint.html', unit: 'tools',
-            title: '5 Flint K12',
+            title: '4 Flint K12',
             summary: 'Round 1. Log in to Flint, make an interactive or an explainer from your own materials, and push it further.',
             keywords: 'flint flintk12 sparky live simulation video explainer interactive activity microsoft sign in',
             sims: [], time: '15 min', sections: 5, standards: [], kind: 'Lesson',
@@ -109,7 +101,7 @@ window.COURSE = {
         },
         {
             id: 'gemini', file: 'gemini.html', unit: 'tools',
-            title: '6 Gemini',
+            title: '5 Gemini',
             summary: 'Round 2. Build a single-screen tool in Gemini Canvas from your prompt spine, test it, share it, and push it further.',
             keywords: 'gemini canvas google vibe coding app html javascript share classroom drive prompt spine',
             sims: [], time: '20 min', sections: 5, standards: [], kind: 'Lesson',
@@ -117,11 +109,11 @@ window.COURSE = {
         },
         {
             id: 'xcode', file: 'xcode.html', unit: 'tools',
-            title: '7 Xcode',
-            summary: 'Build a classroom tool as a real iPad app with the AI agents in Xcode 27, run it in a simulator or on your own iPad, and get it to students. A draft.',
-            keywords: 'xcode 27 swift swiftui ipad app agents claude agent codex chatgpt intelligence coding assistant device hub simulator developer mode apple school manager',
-            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
-            question: 'What should be a real app on a student’s iPad?', status: 'planned'
+            title: '6 Xcode',
+            summary: 'Connect the AI subscriptions you already have, Claude and ChatGPT, to Xcode 27 in its Intelligence settings, then check they work in the coding assistant. A draft.',
+            keywords: 'xcode 27 swift swiftui ipad app settings intelligence agents claude agent codex antigravity chatgpt subscription sign in coding assistant device hub simulator developer mode apple school manager',
+            sims: [], time: '15 min', sections: 5, standards: [], kind: 'Lesson',
+            question: 'How do you bring the AI you already pay for into Xcode?', status: 'planned'
         },
         {
             id: 'github-pages', file: 'github-pages.html', unit: 'publishing',
@@ -176,7 +168,6 @@ window.COURSE = {
         'TestFlight': 'Apple’s way to try an app before it is on the App Store. Testers install it from an invitation.',
         'Commit': 'A saved set of changes to the files in a repository, with a short note saying what changed.',
         'Push': 'To send your commits from your computer to GitHub, so the repository, and any site published from it, has your changes.',
-        'Artifact': 'Something Claude makes beside the chat, such as a document or a small working app, that you can use straight away, change by asking, and share.',
         'Apple Intelligence': 'Apple’s AI, built into recent iPhones, iPads and Macs. A smaller model runs on the device itself; larger ones run on Apple’s servers, called Private Cloud Compute.'
     }
 };

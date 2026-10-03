@@ -17,13 +17,16 @@
      it makes opens in the app's own browser pane. Labels checked in the app itself (Claude
      2.19675): Code, Select folder, the permission modes Manual, Auto (the default), Accept
      edits and Plan mode. Claude Code on the web (claude.ai/code)
-     works on a GitHub repository instead of a folder on your computer. -->
+     works on a GitHub repository instead of a folder on your computer.
+     Exercise 1's download figure, and its sign-in and privacy labels (Continue with Google, Continue with email,
+     Settings > Privacy > Help improve our AI models), came from the Claude artifacts guide, which was removed
+     when Claude Code became the Round 2 tool. -->
 <main class="main" role="main">
 
     <section id="overview">
-        <div class="chapter-eyebrow">The third rung · Getting started</div>
+        <div class="chapter-eyebrow">Round 2 · Getting started</div>
         <h1>Claude Code</h1>
-        <p class="lead">Claude Code is Anthropic’s <span class="term">coding agent</span>. It works in a folder on your computer: it writes the files, runs them, and changes them when you ask. A tool can grow past one screen, into several pages or a whole website. This website was built with it.</p>
+        <p class="lead">Claude Code is Anthropic’s <span class="term">coding agent</span>. It works in a folder on your computer: it writes the files, runs them, and changes them when you ask. A tool can grow past one screen, into several pages or a whole website. This website was built with it. In the Shortcuts and Claude session, it is the Round 2 tool.</p>
 
         <div class="chapter-meta"></div>
 
@@ -49,20 +52,32 @@
         </div>
     </section>
 
-    <section id="open" data-kind="Practice" data-track>
-        <h2>Exercise 1: Open Claude Code and choose a folder</h2>
+    <section id="open" data-kind="Practice" data-time="5 min" data-track>
+        <h2>Exercise 1: Get the app and choose a folder</h2>
 
-        <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Code tab in the Claude desktop app, with the folder choice marked 3.</p></div>
-            <figcaption><b>Figure 1</b> — Starting a session in a folder.</figcaption>
+        <figure class="shot marked">
+            <div class="marked-wrap">
+                <img src="images/claude/download.jpg" width="1400" height="569" alt="The Claude download page at claude.com/download. The heading says Download Claude, then: Think, hand off tasks, and code, all in one place. Below it, a black Download for macOS button." loading="lazy">
+                <span class="marker" style="left:40.7%;top:74.8%" aria-hidden="true">1</span>
+            </div>
+            <figcaption><b>Figure 1</b> — The Claude download page.</figcaption>
         </figure>
         <ol class="steps">
+            <li>Go to <a href="https://claude.com/download" target="_blank" rel="noopener noreferrer"><strong>claude.com/download</strong></a>, choose <strong>Download for macOS</strong>, and open Claude from Applications.</li>
+            <li>Sign in: choose <strong>Continue with Google</strong> or <strong>Continue with email</strong>. Claude Code needs a paid plan: Pro, Max, Team or Enterprise.</li>
             <li>Make a new, empty folder for your tool, for example in Documents.</li>
-            <li>Open the Claude desktop app, and choose <strong>Code</strong>.</li>
+            <li>In the Claude app, choose <strong>Code</strong>.</li>
             <li>Start a new session. Choose <strong>Select folder</strong>, and pick your folder.</li>
         </ol>
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Code tab in the Claude desktop app, with the folder choice marked 5.</p></div>
+            <figcaption><b>Figure 2</b> — Starting a session in a folder.</figcaption>
+        </figure>
         <div class="callout callout-key">
             <p>Claude gets read and write access to the folder you choose. Keep students’ names and personal information out of it.</p>
+        </div>
+        <div class="callout callout-note">
+            <p>On a Pro or Max account, Anthropic can use your chats to train its models. To stop this, open <strong>Settings</strong>, then <strong>Privacy</strong>, and turn off <strong>Help improve our AI models</strong>. Team and Enterprise plans don’t train on chats by default.</p>
         </div>
     </section>
 
@@ -80,7 +95,7 @@
         </div>
         <figure class="shot">
             <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">Claude Code writing the files, with a request to allow a change.</p></div>
-            <figcaption><b>Figure 2</b> — Claude Code at work.</figcaption>
+            <figcaption><b>Figure 3</b> — Claude Code at work.</figcaption>
         </figure>
     </section>
 
@@ -89,9 +104,9 @@
 
         <figure class="shot">
             <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">Your tool open in the app’s browser pane, beside the chat.</p></div>
-            <figcaption><b>Figure 3</b> — Your tool, running.</figcaption>
+            <figcaption><b>Figure 4</b> — Your tool, running.</figcaption>
         </figure>
-        <ol class="steps" style="counter-reset: step 3">
+        <ol class="steps" style="counter-reset: step 5">
             <li>Ask Claude Code to show you the page. It opens beside the chat, in the app’s own browser.</li>
             <li>Use it as a student would.</li>
             <li>Ask for one change at a time, and check each one. If a change makes it worse, ask Claude Code to put it back.</li>

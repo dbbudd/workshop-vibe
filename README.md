@@ -15,11 +15,10 @@ The tools are listed in alphabetical order, as they are in the site's menu (`COU
 | `index.html` | **The session**, laid out like a magazine. The film's boards are rebuilt in HTML and CSS: the cover, the idea (recursion), why now (MIT), so we teach, the question and the loop. Then come the nine steps from the warm-up to Build 02, each build step with buttons into the Flint or Gemini guide, and where this goes. |
 | `shortcuts.html` | **Apple Shortcuts** (draft). Round 1 of the Shortcuts + Claude session: describe a shortcut and let Apple Intelligence build it, check and tweak it (the worked example, Summarise, turns a meeting transcript into notes), run it, describe a change, and share it. |
 | `chatgpt.html` | **ChatGPT** (draft). The third rung, in the ChatGPT app for Mac: build from the prompt spine as an HTML file with a preview pane beside the chat, test it, publish it with GitHub Pages, push it further by asking for a new file. Tested in the real app on 3 October 2026. Carries a Hong Kong availability warning. |
-| `claude.html` | **Claude** (draft). Round 2 of the Shortcuts + Claude session, in the Claude desktop app: build from the prompt spine as an artifact, test it, publish it and share the link, push it further. |
-| `claude-code.html` | **Claude Code** (draft). The third rung, in the Code tab of the Claude desktop app: a tool bigger than one screen, built in a folder, then published. |
+| `claude-code.html` | **Claude Code** (draft). Round 2 of the Shortcuts + Claude session, in the Code tab of the Claude desktop app: get the app, build a tool in a folder, see it, change it, publish it. |
 | `flint.html` | **Flint K12.** Round 1, as getting-started exercises: log in, make an interactive, make an explainer video, turn it into an activity, and videos to push further. |
 | `gemini.html` | **Gemini.** Round 2: open Canvas, build from the prompt spine, the three words, test and share, and videos to push further. |
-| `xcode.html` | **Xcode** (draft). Build the tool as a real iPad app with the agents in Xcode 27, run it in Device Hub or on your own iPad, get it to students (privately through Apple School Manager, or the App Store). |
+| `xcode.html` | **Xcode** (draft). Connect the AI subscriptions you already have, Claude and ChatGPT, to Xcode 27 in Settings → Intelligence, then check they work in the coding assistant. Push-it-further notes cover running on an iPad and getting an app to students. Codex and Antigravity (Google's agent) are mentioned, not taught. |
 | `github-pages.html` | **App publishing: GitHub Pages** (draft). Publish a tool as a free website from a repository, then keep it up to date with GitHub Desktop. |
 | `vercel.html` | **App publishing: Vercel** (draft). Publish a web app from GitHub: changes to the main branch go live by themselves, and other branches get a preview link first. |
 | `app-store.html` | **App publishing: App Store** (draft). The Apple Developer Program, App Store Connect, TestFlight and App Review. |
@@ -114,7 +113,8 @@ Then open http://localhost:4322. Videos only play when the site is served from a
 - **Opening a guide when it is ready.** The draft guides have `status: 'planned'` in `assets/toc.js`, so the sidebar
   shows them as Soon, links to them elsewhere on the site are switched off (with a Soon tag), and their sections don't
   count toward progress. Change a guide's status to `'ready'` and all of that switches on by itself. The pages still
-  exist, so you can open and check a draft locally (for example `http://localhost:4322/claude.html`).
+  exist, so you can open and check a draft locally (for example `http://localhost:4322/claude-code.html`).
   On 3 October 2026 the Apple Shortcuts, ChatGPT, GitHub Pages and App Store guides were opened (they have no, or
-  one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). Claude, Claude
-  Code, Xcode and Vercel are still Soon: each has screenshots still to come.
+  one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). Claude Code,
+  Xcode and Vercel are still Soon: each has screenshots still to come. Claude Code is the Round 2 tool of the
+  Shortcuts + Claude session, so its help buttons on the session page stay switched off until it is opened.

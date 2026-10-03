@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xcode: getting started — Bring a Barrier, Leave With a Build</title>
-<meta name="description" content="A draft guide to making a one-screen iPad app with the AI agents in Xcode 27, running it in a simulator or on your own iPad, and getting it to students.">
+<title>Xcode: connect your AI — Bring a Barrier, Leave With a Build</title>
+<meta name="description" content="A short draft guide to connecting the AI subscriptions you already have, Claude and ChatGPT, to Xcode 27, and checking that they work in the coding assistant.">
 <link rel="stylesheet" href="assets/course.css?v=1">
 <link rel="stylesheet" href="assets/workshop.css?v=1">
 <script>if('scrollRestoration' in history)history.scrollRestoration='manual';</script>
@@ -12,18 +12,45 @@
 <body data-root="" data-chapter="xcode">
 
 <!-- A draft. Screenshots still to come are .shot-todo boxes; facts still to check carry a TBC tag.
-     Checked October 2026 against Xcode 27.0 (27A266a) on the presenter's Mac (its compiled interface
-     text and templates) and Apple's documentation (developer.apple.com/documentation/xcode):
-     New Project → App (SwiftUI, saved later with File → Save Project); Settings → Intelligence →
-     Agents (Get, Install) and Chat (ChatGPT in Xcode, no account needed); the Coding Assistant
-     (⌘0, New Conversation); Run (⌘R) into a simulator in Device Hub; signing, Trust and Developer Mode
-     for your own iPad; a free Apple Account's 7-day limit; TestFlight can't reach student accounts. -->
+     This guide is deliberately short: it only shows how to connect Claude and ChatGPT to Xcode.
+     Steps and labels are from Apple's "Setting up coding intelligence"
+     (developer.apple.com/documentation/xcode/setting-up-coding-intelligence, read 3 October 2026):
+     Xcode > Settings > Intelligence has three sections, Agents, Model Context Protocol and Chat. An agent:
+     click Get next to it, then Install; if it has an account, click the More button (...) in the Account
+     row and sign in. ChatGPT in Xcode (with or without an account): click Turn On in its row under Chat,
+     then Next, then Turn On ChatGPT; to sign in to a free or paid ChatGPT account: toggle it on, click
+     Sign In in the ChatGPT row, then Sign In again, and finish in the browser. Claude Sonnet & Opus:
+     click it under Chat, then Sign In in the Claude row. A school can switch the coding assistant off on
+     managed Macs with the CodingAssistantAllowExternalIntegrations setting. Plans: Claude in Xcode needs a
+     Pro or Max plan, or a premium Team or Enterprise seat, not Free, and uses the same limits as chats with
+     Claude (support.claude.com/en/articles/12293051, dated 19 May 2026). The label "Sign In With a Claude.ai
+     Account..." comes from Xcode's own compiled text, not yet seen on screen. Xcode 27.0 needs macOS 26.6 or
+     later and a Mac with Apple silicon (apps.apple.com).
+     Seen on the presenter's Mac on 3 October 2026 (Xcode 27.0, 27A266a): Settings > Intelligence opens with a
+     "Coding Intelligence" banner and an "About Intelligence in Xcode & Privacy..." link, then Agents lists
+     Claude Agent (Anthropic), Codex (OpenAI) and Antigravity (Google), each with a Get button, and an
+     "Add an Agent..." button; Model Context Protocol comes next. Google's agent is Antigravity, not Gemini.
+     Antigravity (antigravity.google/docs/ide/extensions/xcode, read 3 October 2026): installed from the same
+     Intelligence settings with Get, then "..." to sign in; needs a Google account, with a free plan; Google
+     doesn't say which account types or countries are supported, and a forum report says a Workspace account
+     was refused as "not eligible", so it is only mentioned, not taught.
+     Figure 1 is the presenter's own screenshot (3 October 2026, 20:21), cropped: Claude Agent had been
+     fetched ("217.3 MB of 217.3 MB (100.0%)"), Codex still showed Get, Antigravity showed an arrow, and a
+     header "Agents in Xcode" sat below the Agents list. Antigravity's own page has an Account row ("Not
+     Signed In") with a "..." button whose menu reads: Log in with Google..., Log in with your Gemini
+     Enterprise account..., Provide a Gemini API Key from Google AI Studio..., Provide a Google API Key for
+     Gemini Enterprise Agent Platform..., Authenticate with Configuration Files..., Sign Out... Its text says
+     that with Google AI plans, prompts and responses may be reviewed to improve Google AI. That screenshot
+     showed the presenter's name and Apple team ID in a window behind it, so it is not used.
+     Xcode's windows are not visible to the screen tools, so every Xcode figure comes from the presenter's
+     own screenshots. Still to come: the Chat section (ChatGPT in Xcode, Claude Sonnet & Opus), the "Agents
+     in Xcode" section, Claude Agent's own page with its Account "..." menu, and the coding assistant. -->
 <main class="main" role="main">
 
     <section id="overview">
         <div class="chapter-eyebrow">Apple · Getting started</div>
         <h1>Xcode</h1>
-        <p class="lead">Xcode is Apple’s free app for making apps for iPhone, iPad and Mac. You build in <span class="term">Swift</span>, and Xcode 27 has AI agents built in, such as Claude Agent and ChatGPT’s Codex, that plan, write and test the code with you.</p>
+        <p class="lead">Xcode is Apple’s free app for making apps for iPhone, iPad and Mac. Xcode 27 has AI built in, and you bring your own: sign in with the Claude and ChatGPT subscriptions you already have, and both work inside any project. This guide shows how, in four short steps.</p>
 
         <div class="chapter-meta"></div>
 
@@ -32,16 +59,16 @@
         <div class="two-col">
             <div>
                 <h4>Best for</h4>
-                <p>A tool that should be a real app on a student’s iPad: <strong>it works offline, keeps data on the device, and needs no sign-in.</strong></p>
+                <p>Using the AI you already pay for where you make apps. <strong>One sign-in each, then every project can use it.</strong></p>
             </div>
             <div>
                 <h4>Start here</h4>
-                <p><strong>Xcode 27</strong>, free from the Mac App Store. It needs a Mac with Apple silicon (M1 or later) on macOS 26.6 or later.<br>Swift Playground, on iPad or Mac, is a gentler start, but has no AI chat.</p>
+                <p><strong>Xcode 27</strong>, free from the Mac App Store. It needs a Mac with Apple silicon (M1 or later) on macOS 26.6 or later.<br>You need a Claude plan, a ChatGPT account, or both.</p>
             </div>
         </div>
 
         <div class="callout callout-key" data-label="Check first">
-            <p>The AI agents come from Anthropic, OpenAI and Google, and neither Anthropic nor OpenAI lists Hong Kong as a supported region. Check with HKIS IT before you rely on them.</p>
+            <p>Hong Kong is not on Anthropic’s or OpenAI’s list of supported regions, and Apple says these features are available “where available”. Check with HKIS leadership and IT before you rely on them. If your Mac is managed by the school and you don’t see Claude or ChatGPT in Xcode’s settings, ask IT: a device-management setting can switch the coding assistant off.</p>
         </div>
 
         <div class="callout callout-note" data-label="Draft">
@@ -49,102 +76,116 @@
         </div>
     </section>
 
-    <section id="install" data-kind="Practice" data-track>
-        <h2>Exercise 1: Install Xcode and start a project</h2>
+    <section id="settings" data-kind="Practice" data-time="2 min" data-track>
+        <h2>Exercise 1: Open the Intelligence settings</h2>
 
-        <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Welcome to Xcode window, with App in the New Project menu marked 2.</p></div>
-            <figcaption><b>Figure 1</b> — Starting a new app.</figcaption>
+        <figure class="shot marked">
+            <div class="marked-wrap">
+                <img src="images/xcode/intelligence.jpg" width="1200" height="758" alt="Xcode’s Settings window with Intelligence chosen in the sidebar. At the top is a Coding Intelligence banner with a link, About Intelligence in Xcode and Privacy. Below it, the Agents list shows Claude Agent from Anthropic downloading, Codex from OpenAI with a Get button, and Antigravity from Google, then an Add an Agent button." loading="lazy">
+                <span class="marker" style="left:21.3%;top:35.9%" aria-hidden="true">3</span>
+            </div>
+            <figcaption><b>Figure 1</b> — Xcode’s Intelligence settings.</figcaption>
         </figure>
         <ol class="steps">
-            <li>Install <strong>Xcode</strong> from the Mac App Store, and open it. The first time, choose <strong>Download &amp; Install</strong> to add the simulators and tools.</li>
-            <li>In the Welcome to Xcode window, choose <strong>App</strong> from the <strong>New Project</strong> menu. Xcode makes a SwiftUI app called MyApp straight away.</li>
-            <li>Choose <strong>File</strong>, then <strong>Save Project</strong>, to name it and choose where it goes.</li>
+            <li>Open <strong>Xcode</strong> from your Applications folder.</li>
+            <li>Choose <strong>Xcode</strong>, then <strong>Settings…</strong> (or press ⌘ and the comma key).</li>
+            <li>Choose <strong>Intelligence</strong> in the sidebar.</li>
+        </ol>
+        <p>At the top, a <strong>Coding Intelligence</strong> banner reminds you that third-party models can see your project files and code. Below it, <strong>Agents</strong> are AI helpers that can plan, write, build and test code for you: here, Claude Agent, Codex and Antigravity. Further down, <strong>Chat</strong> holds AI models you talk to, and <strong>Model Context Protocol</strong> is for adding extra tools, which you can leave alone.</p>
+    </section>
+
+    <section id="chatgpt" data-kind="Practice" data-time="3 min" data-track>
+        <h2>Exercise 2: Connect ChatGPT</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Chat section, with the Turn On button in the ChatGPT in Xcode row marked 4.</p></div>
+            <figcaption><b>Figure 2</b> — The ChatGPT in Xcode row.</figcaption>
+        </figure>
+        <ol class="steps" style="counter-reset: step 3">
+            <li>Under <strong>Chat</strong>, click <strong>Turn On</strong> in the <strong>ChatGPT in Xcode</strong> row.</li>
+            <li>Click <strong>Next</strong>, then <strong>Turn On ChatGPT</strong>. That is enough to start, and it works without an account, with usage limits.</li>
+            <li>To use your own ChatGPT account, click <strong>Sign In</strong> in the ChatGPT row, then <strong>Sign In</strong> again. Finish in the browser window that opens. A paid account has higher limits.</li>
+        </ol>
+    </section>
+
+    <section id="claude" data-kind="Practice" data-time="4 min" data-track>
+        <h2>Exercise 3: Connect Claude</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The Agents section, with Get next to Claude Agent marked 7, and then the Claude Agent settings with the More button (…) in the Account row marked 8.</p></div>
+            <figcaption><b>Figure 3</b> — Adding Claude Agent, then signing in.</figcaption>
+        </figure>
+        <ol class="steps" style="counter-reset: step 6">
+            <li>Under <strong>Agents</strong>, click <strong>Get</strong> next to <strong>Claude Agent</strong>. In the box that opens, click <strong>Install</strong>. Xcode downloads it (about 217 MB) and shows the progress on the row.</li>
+            <li>When the download has finished, click the <strong>Claude Agent</strong> row to open its settings. In the <strong>Account</strong> row, which says <strong>Not Signed In</strong>, click the <strong>…</strong> button, and choose the option to log in with your Claude account. A browser window opens to finish. <span class="tbc">TBC</span></li>
         </ol>
         <div class="callout callout-note">
-            <p>Save it in a new folder in your home folder, not in Documents, Desktop, Downloads or iCloud Drive: macOS can stop the AI agent from working there.</p>
+            <p>Claude in Xcode needs a Claude <strong>Pro</strong> or <strong>Max</strong> plan, or a premium Team or Enterprise seat. The Free plan doesn’t work. What you use in Xcode counts against the same limits as your chats with Claude.</p>
+        </div>
+        <p>You can also talk to Claude as a chat model: under <strong>Chat</strong>, click <strong>Claude Sonnet &amp; Opus</strong>, then click <strong>Sign In</strong> in the Claude row.</p>
+        <p>Two other agents are in the Agents list: <strong>Codex</strong> from OpenAI and <strong>Antigravity</strong> from Google. They are added the same way, with <strong>Get</strong>, and you don’t need them today. Antigravity signs in with a Google AI plan, a Gemini Enterprise account or a Gemini API key. Xcode warns that on a Google AI plan, prompts and responses may be reviewed to improve Google AI. Whether a school Google account works is not stated. <span class="tbc">TBC</span></p>
+    </section>
+
+    <section id="check" data-kind="Practice" data-time="3 min" data-track>
+        <h2>Exercise 4: Check that it works</h2>
+
+        <figure class="shot">
+            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The coding assistant open beside a project, with New Conversation and the choice of agent marked 10, and a short reply to the test prompt.</p></div>
+            <figcaption><b>Figure 4</b> — Your first conversation.</figcaption>
+        </figure>
+        <ol class="steps" style="counter-reset: step 8">
+            <li>Open any project. To make a practice one, choose <strong>File</strong>, then <strong>New</strong>, then <strong>Project…</strong>, and choose <strong>App</strong>.</li>
+            <li>Open the coding assistant: press <strong>⌘0</strong>, or click the <strong>Coding Assistant</strong> button. Click <strong>New Conversation</strong>, and choose <strong>Claude Agent</strong> or <strong>ChatGPT</strong>.</li>
+            <li>Send the message below.</li>
+        </ol>
+        <div class="prompt-card">
+            <span class="prompt-label">A test message</span>
+            <p class="prompt-text">Hello! Which AI model am I talking to, and what could you help me do in this project?</p>
+            <p class="prompt-note">Not yet tested. <span class="tbc">TBC</span></p>
+        </div>
+        <div class="callout callout-key">
+            <p>Once you connect an AI, it may read your project files and other information when it answers. To see what is shared, click <strong>About Intelligence in Xcode &amp; Privacy…</strong> in the Intelligence settings. Keep students’ names and personal information out of your projects.</p>
         </div>
     </section>
 
-    <section id="build" data-kind="Practice" data-track>
-        <h2>Exercise 2: Build one screen with AI</h2>
+    <section id="further" data-kind="Orientation" data-time="20 min" data-track>
+        <h2>Push it further</h2>
 
-        <p>Set up an agent once. Then describe your screen with the prompt spine.</p>
-        <ol class="steps" style="counter-reset: step 3">
-            <li>Choose <strong>Xcode</strong>, then <strong>Settings…</strong>, then <strong>Intelligence</strong>.</li>
-            <li>Under <strong>Agents</strong>, click <strong>Get</strong> beside Claude Agent, then <strong>Install</strong>, and sign in with your Claude account. Or, under <strong>Chat</strong>, turn on <strong>ChatGPT in Xcode</strong>, which works without an account.</li>
-            <li>Open the coding assistant with <strong>⌘0</strong>, click <strong>New Conversation</strong>, choose your agent, and send the prompt spine.</li>
-        </ol>
+        <p>Now ask your AI to build something. Change one thing at a time, and run the app after each change.</p>
         <div class="prompt-card">
-            <span class="prompt-label">The prompt spine, for an app</span>
+            <span class="prompt-label">Then push it</span>
             <p class="prompt-text">Build a SwiftUI screen for a Grade 7 student who loses their place in a multi-step maths problem. Show the current step first, then let them tick it off. Keep the language at Grade 5.</p>
             <p class="prompt-note">Not yet tested. <span class="tbc">TBC</span></p>
         </div>
-        <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">The coding assistant: the conversation, with the code changes and a preview beside it.</p></div>
-            <figcaption><b>Figure 2</b> — Building with an agent.</figcaption>
-        </figure>
-        <div class="callout callout-note">
-            <p>Claude Agent needs a paid Claude plan (Pro or Max), and its use counts against that plan’s limits. ChatGPT in Xcode works without an account, with usage limits.</p>
+        <div class="prompt-card">
+            <span class="prompt-label">Then push it</span>
+            <p class="prompt-text">Explain what each part of the code does, in plain English.</p>
         </div>
-    </section>
-
-    <section id="run" data-kind="Practice" data-track>
-        <h2>Exercise 3: Run it</h2>
-
-        <figure class="shot">
-            <div class="shot-todo"><p class="todo-k">Screenshot to come</p><p class="todo-t">Your app running in an iPad simulator, in Device Hub.</p></div>
-            <figcaption><b>Figure 3</b> — Your app in an iPad simulator.</figcaption>
-        </figure>
-        <ol class="steps" style="counter-reset: step 6">
-            <li>Choose an iPad from the run destination menu in the toolbar, then click <strong>Run</strong> (⌘R). Your app opens in an iPad simulator, in Device Hub.</li>
-            <li>To run it on your own iPad: sign in under <strong>Xcode</strong>, <strong>Settings…</strong>, <strong>Apple Accounts</strong>, and in <strong>Signing &amp; Capabilities</strong> turn on <strong>Automatically manage signing</strong>. Connect the iPad, tap <strong>Trust</strong>, and on the iPad turn on <strong>Developer Mode</strong>, in Settings, then Privacy &amp; Security. Then choose the iPad, and click Run.</li>
-        </ol>
-        <div class="callout callout-note">
-            <p>With a free Apple Account, an app on your own iPad stops working after 7 days, and you run it again from Xcode. A free account can use up to 3 devices.</p>
-        </div>
-    </section>
-
-    <section id="next" data-kind="Practice" data-track>
-        <h2>Exercise 4: Get it to students</h2>
-
-        <p>TestFlight is for testing with colleagues: students’ school Apple Accounts can’t use it. To put the app on HKIS iPads, publish it as a private app for HKIS through Apple School Manager, which HKIS then installs, or put it on the App Store. The App Store guide walks you through both.</p>
+        <ul>
+            <li><strong>Run it.</strong> Choose an iPad from the run destination menu in the toolbar, then click <strong>Run</strong> (⌘R). Your app opens in an iPad simulator, in the Device Hub app.</li>
+            <li><strong>Your own iPad.</strong> Sign in under <strong>Xcode</strong>, <strong>Settings…</strong>, <strong>Apple Accounts</strong>, connect the iPad and tap <strong>Trust</strong>, and turn on <strong>Developer Mode</strong> on the iPad. With a free Apple Account the app stops working after 7 days, and you run it again from Xcode.</li>
+            <li><strong>Students.</strong> TestFlight can’t reach students’ school Apple Accounts. To put an app on HKIS iPads, make it a private app through Apple School Manager, or use the App Store.</li>
+        </ul>
         <div class="resource-list">
             <a class="btn-external" href="app-store.html">
                 <span class="btn-external-icon" aria-hidden="true">&#10140;</span>
                 <span><strong>Publish it on the App Store</strong><small>The App publishing guide, step by step, including a private app for HKIS</small></span>
                 <span class="btn-external-arrow" aria-hidden="true">&rarr;</span>
             </a>
+            <a class="btn-external" href="https://developer.apple.com/videos/play/wwdc2026/259/" target="_blank" rel="noopener noreferrer">
+                <span class="btn-external-icon" aria-hidden="true">&#10140;</span>
+                <span><strong>Xcode, agents, and you</strong><small>Apple’s own WWDC26 session, 22 minutes: using agents to explore, build and refine an app</small></span>
+                <span class="btn-external-arrow" aria-hidden="true">&nearr;</span>
+            </a>
         </div>
-    </section>
 
-    <section id="further" data-kind="Orientation" data-track>
-        <h2>Push it further</h2>
-
-        <p>Change one thing at a time, and run the app after each change.</p>
-        <div class="prompt-card">
-            <span class="prompt-label">Then push it</span>
-            <p class="prompt-text">Make the text follow the iPad’s text size setting.</p>
-        </div>
-        <div class="prompt-card">
-            <span class="prompt-label">Then push it</span>
-            <p class="prompt-text">Add a second screen for the teacher.</p>
-        </div>
-        <div class="prompt-card">
-            <span class="prompt-label">Then push it</span>
-            <p class="prompt-text">Save the student’s progress on the device.</p>
-        </div>
-        <div class="prompt-card">
-            <span class="prompt-label">Then push it</span>
-            <p class="prompt-text">Explain what each part of the code does, in plain English.</p>
-        </div>
         <h3>Videos</h3>
-        <p>Videos to come. Each one will load only when you press play.</p>
+        <p>Each video loads only when you press play. They are from independent creators, not from Apple.</p>
 
         <div class="video-list">
-            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Your first SwiftUI app in Xcode.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
-            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Building with the agents in Xcode 27.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
-            <div class="video-item"><div class="shot-todo video-todo"><p class="todo-k">Video to come</p><p class="todo-t">Running your app on a real iPad.</p></div><p class="video-why">Why it is worth watching. <span class="tbc">TBC</span></p></div>
+            <div class="video-item"><div class="video" data-video="eqySIoWrf3U" data-title="Xcode 27: How To Connect and Use Anthropic, Gemini, OpenAI, and Third-Party Models" data-source="SwiftUI Animation &amp; Agentic Coding" data-note="June 2026 · 5:14"></div><p class="video-why">Five minutes on connecting the AI models and agents Xcode 27 supports, from Anthropic, Google and OpenAI.</p></div>
+
+            <div class="video-item"><div class="video" data-video="WTRNddbopGQ" data-title="Build Your First iPhone App with Claude &amp; Xcode 27 (No Experience Needed)" data-source="Code with Beto" data-note="July 2026 · 14:10"></div><p class="video-why">A first iPhone app built with Xcode 27’s AI, covering planning, skills, MCP and the new Device Hub app.</p></div>
         </div>
     </section>
 
