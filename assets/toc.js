@@ -73,7 +73,7 @@ window.COURSE = {
             summary: 'Round 1 of the Shortcuts and Claude session. Describe a shortcut in plain words and let Apple Intelligence build it, then check it, tweak it, run it and share it. The worked example, Summarise, turns a meeting transcript into notes. A draft.',
             keywords: 'apple shortcuts apple intelligence describe a shortcut describe a change tweak use model on-device summarise transcript meeting notes automation ipad iphone mac icloud link ai',
             sims: [], time: '', sections: 6, standards: [], kind: 'Lesson',
-            question: 'What could run itself, every lesson?', status: 'planned'
+            question: 'What could run itself, every lesson?', status: 'ready'
         },
         {
             id: 'chatgpt', file: 'chatgpt.html', unit: 'tools',
@@ -81,7 +81,7 @@ window.COURSE = {
             summary: 'The third rung. In the ChatGPT app for Mac, build the same barrier from your prompt spine as an HTML file you can preview beside the chat, change it by asking for a new file, and publish it for students with GitHub Pages. A draft.',
             keywords: 'chatgpt openai desktop app mac chat work stay in chat html file preview download file update the html file github pages data controls temporary chat hong kong third rung prompt spine',
             sims: [], time: '20 min', sections: 4, standards: [], kind: 'Lesson',
-            question: 'What changes when a different builder reads the same prompt spine?', status: 'planned'
+            question: 'What changes when a different builder reads the same prompt spine?', status: 'ready'
         },
         {
             id: 'claude', file: 'claude.html', unit: 'tools',
@@ -129,7 +129,7 @@ window.COURSE = {
             summary: 'Publish a classroom tool as a free website from a GitHub repository, and keep it up to date with GitHub Desktop. A first draft.',
             keywords: 'github pages publish website repository index.html free link deploy github desktop commit push clone',
             sims: [], time: '', sections: 6, standards: [], kind: 'Lesson',
-            question: 'How do students open what you built?', status: 'planned'
+            question: 'How do students open what you built?', status: 'ready'
         },
         {
             id: 'vercel', file: 'vercel.html', unit: 'publishing',
@@ -145,7 +145,7 @@ window.COURSE = {
             summary: 'Publish an app made in Xcode: the Apple Developer Program, App Store Connect, TestFlight and App Review. A first draft.',
             keywords: 'app store apple developer program app store connect testflight app review publish ipad',
             sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
-            question: 'What does it take to put an app in students’ hands?', status: 'planned'
+            question: 'What does it take to put an app in students’ hands?', status: 'ready'
         }
     ],
 

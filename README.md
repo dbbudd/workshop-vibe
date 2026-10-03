@@ -114,4 +114,7 @@ Then open http://localhost:4322. Videos only play when the site is served from a
 - **Opening a guide when it is ready.** The draft guides have `status: 'planned'` in `assets/toc.js`, so the sidebar
   shows them as Soon, links to them elsewhere on the site are switched off (with a Soon tag), and their sections don't
   count toward progress. Change a guide's status to `'ready'` and all of that switches on by itself. The pages still
-  exist, so you can open and check a draft locally (for example `http://localhost:4322/chatgpt.html`).
+  exist, so you can open and check a draft locally (for example `http://localhost:4322/claude.html`).
+  On 3 October 2026 the Apple Shortcuts, ChatGPT, GitHub Pages and App Store guides were opened (they have no, or
+  one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). Claude, Claude
+  Code, Xcode and Vercel are still Soon: each has screenshots still to come.
