@@ -115,6 +115,8 @@ Then open http://localhost:4322. Videos only play when the site is served from a
   count toward progress. Change a guide's status to `'ready'` and all of that switches on by itself. The pages still
   exist, so you can open and check a draft locally (for example `http://localhost:4322/claude-code.html`).
   On 3 October 2026 the Apple Shortcuts, ChatGPT, GitHub Pages and App Store guides were opened (they have no, or
-  one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). Claude Code,
-  Xcode and Vercel are still Soon: each has screenshots still to come. Claude Code is the Round 2 tool of the
+  one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). Xcode was
+  opened the same day at the presenter's request, with one real screenshot and three boxes still to come (the Chat
+  section, Claude Agent's Account menu and the coding assistant), all of them marked on the page. Claude Code and
+  Vercel are still Soon: each has screenshots still to come. Claude Code is the Round 2 tool of the
   Shortcuts + Claude session, so its help buttons on the session page stay switched off until it is opened.

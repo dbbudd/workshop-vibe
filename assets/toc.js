@@ -113,7 +113,7 @@ window.COURSE = {
             summary: 'Connect the AI subscriptions you already have, Claude and ChatGPT, to Xcode 27 in its Intelligence settings, then check they work in the coding assistant. A draft.',
             keywords: 'xcode 27 swift swiftui ipad app settings intelligence agents claude agent codex antigravity chatgpt subscription sign in coding assistant device hub simulator developer mode apple school manager',
             sims: [], time: '15 min', sections: 5, standards: [], kind: 'Lesson',
-            question: 'How do you bring the AI you already pay for into Xcode?', status: 'planned'
+            question: 'How do you bring the AI you already pay for into Xcode?', status: 'ready'
         },
         {
             id: 'github-pages', file: 'github-pages.html', unit: 'publishing',
