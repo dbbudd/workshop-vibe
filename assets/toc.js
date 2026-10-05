@@ -126,10 +126,10 @@ window.COURSE = {
         {
             id: 'vercel', file: 'vercel.html', unit: 'publishing',
             title: '2 Vercel',
-            summary: 'Publish a web app with Vercel from a GitHub repository: changes to the main branch go live by themselves, and other branches get a preview link first. A draft.',
-            keywords: 'vercel deploy web app github preview link hosting',
-            sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
-            question: 'How does a growing tool stay live while you change it?', status: 'planned'
+            summary: 'Why you might publish with Vercel instead of GitHub Pages, then put a tool online by dragging in its folder, and connect GitHub so changes go live by themselves with a preview link first. A draft.',
+            keywords: 'vercel deploy drop folder web app github preview link hosting hobby plan non-commercial function environment variable secret key api key data preferences ai training private repository custom domain',
+            sims: [], time: '30 min', sections: 7, standards: [], kind: 'Lesson',
+            question: 'How does a growing tool stay live while you change it?', status: 'ready'
         },
         {
             id: 'app-store', file: 'app-store.html', unit: 'publishing',

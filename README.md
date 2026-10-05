@@ -20,7 +20,7 @@ The tools are listed in alphabetical order, as they are in the site's menu (`COU
 | `gemini.html` | **Gemini.** Round 2: open Canvas, build from the prompt spine, the three words, test and share, and videos to push further. |
 | `xcode.html` | **Xcode** (draft). Connect the AI subscriptions you already have, Claude and ChatGPT, to Xcode 27 in Settings → Intelligence, then check they work in the coding assistant. Push-it-further notes cover running on an iPad and getting an app to students. Codex and Antigravity (Google's agent) are mentioned, not taught. |
 | `github-pages.html` | **App publishing: GitHub Pages** (draft). Publish a tool as a free website from a repository, then keep it up to date with GitHub Desktop. |
-| `vercel.html` | **App publishing: Vercel** (draft). Publish a web app from GitHub: changes to the main branch go live by themselves, and other branches get a preview link first. |
+| `vercel.html` | **App publishing: Vercel** (draft). Why you might choose it over GitHub Pages (previews, a hidden key, private code), what to know first (the free plan's personal-use rule, AI training on the free plan), then drop a folder to put a tool online, connect GitHub so changes go live by themselves, and preview a change first. |
 | `app-store.html` | **App publishing: App Store** (draft). The Apple Developer Program, App Store Connect, TestFlight and App Review. |
 | `handout/` | The two-page colour A3 handout (PDF). The toolbar's red **Handout** button downloads it. |
 
@@ -117,6 +117,9 @@ Then open http://localhost:4322. Videos only play when the site is served from a
   On 3 October 2026 the Apple Shortcuts, ChatGPT, GitHub Pages and App Store guides were opened (they have no, or
   one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). Xcode was
   opened the same day at the presenter's request, with one real screenshot and three boxes still to come (the Chat
-  section, Claude Agent's Account menu and the coding assistant), all of them marked on the page. Claude Code and
-  Vercel are still Soon: each has screenshots still to come. Claude Code is the Round 2 tool of the
+  section, Claude Agent's Account menu and the coding assistant), all of them marked on the page. Vercel was opened on
+  4 October 2026 the same way: seven real screenshots, one box still to come (a preview link) and three videos. To
+  take them, a one-page test site was deployed to the presenter's own Vercel account as the project `hkis-demo`
+  (short address hkis-demo-green.vercel.app); it is still there, to keep or delete (Settings, General, Delete
+  Project). Claude Code is still Soon: it has screenshots still to come. It is the Round 2 tool of the
   Shortcuts + Claude session, so its help buttons on the session page stay switched off until it is opened.
