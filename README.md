@@ -19,9 +19,9 @@ The tools are listed in alphabetical order, as they are in the site's menu (`COU
 | `flint.html` | **Flint K12.** Round 1, as getting-started exercises: log in, make an interactive, make an explainer video, turn it into an activity, and videos to push further. |
 | `gemini.html` | **Gemini.** Round 2: open Canvas, build from the prompt spine, the three words, test and share, and videos to push further. |
 | `xcode.html` | **Xcode** (draft). Connect the AI subscriptions you already have, Claude and ChatGPT, to Xcode 27 in Settings → Intelligence, then check they work in the coding assistant. Push-it-further notes cover running on an iPad and getting an app to students. Codex and Antigravity (Google's agent) are mentioned, not taught. |
-| `github-pages.html` | **App publishing: GitHub Pages** (draft). Publish a tool as a free website from a repository, then keep it up to date with GitHub Desktop. |
+| `github-pages.html` | **App publishing: GitHub Pages.** Publish a tool as a free website from a repository, then keep it up to date with GitHub Desktop. Finished: every screenshot and video is in. |
 | `vercel.html` | **App publishing: Vercel** (draft). Why you might choose it over GitHub Pages (previews, a hidden key, private code), what to know first (the free plan's personal-use rule, AI training on the free plan), then drop a folder to put a tool online, connect GitHub so changes go live by themselves, and preview a change first. |
-| `app-store.html` | **App publishing: App Store** (draft). The Apple Developer Program, App Store Connect, TestFlight and App Review. |
+| `app-store.html` | **App publishing: App Store.** The Apple Developer Program, App Store Connect, TestFlight and App Review. Finished: every screenshot and video is in. |
 | `handout/` | The two-page colour A3 handout (PDF). The toolbar's red **Handout** button downloads it. |
 
 ## How it is built
@@ -101,7 +101,7 @@ Then open http://localhost:4322. Videos only play when the site is served from a
   width. Check 150% on a phone, in OpenDyslexic too, after changing it.
 - **When shared CSS or JavaScript changes**, bump `ASSET_V` in `assets/course.js` and the `?v=` on every page.
 - **Videos** were checked as embeddable on 1 October 2026 (YouTube oEmbed). Each loads only when pressed.
-- **The draft guides** (ChatGPT, Claude Code, Apple Shortcuts, Xcode, GitHub Pages, Vercel, App Store) mark what is
+- **The draft guides** (ChatGPT, Claude Code, Apple Shortcuts, Xcode, Vercel) mark what is
   still to come, so it is easy to find:
   - a screenshot still to take is a `<div class="shot-todo">` box inside its `<figure>`. Replace the box with the
     image, and add numbered markers as on `flint.html` (`figure.marked`);
@@ -115,7 +115,10 @@ Then open http://localhost:4322. Videos only play when the site is served from a
   count toward progress. Change a guide's status to `'ready'` and all of that switches on by itself. The pages still
   exist, so you can open and check a draft locally (for example `http://localhost:4322/claude-code.html`).
   On 3 October 2026 the Apple Shortcuts, ChatGPT, GitHub Pages and App Store guides were opened (they have no, or
-  one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). Xcode was
+  one optional, screenshot still to come, and keep their Draft note while some facts are tagged TBC). The GitHub
+  Pages and App Store guides were finished on 5 October 2026 (their last screenshot or videos are in, and their
+  Draft note and "A first draft" are gone). The ChatGPT guide has its three videos but keeps its Draft note, because
+  two facts are still tagged TBC. Xcode was
   opened the same day at the presenter's request, with one real screenshot and three boxes still to come (the Chat
   section, Claude Agent's Account menu and the coding assistant), all of them marked on the page. Vercel was opened on
   4 October 2026 the same way: seven real screenshots, one box still to come (a preview link) and three videos. To

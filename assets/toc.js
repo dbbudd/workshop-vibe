@@ -118,7 +118,7 @@ window.COURSE = {
         {
             id: 'github-pages', file: 'github-pages.html', unit: 'publishing',
             title: '1 GitHub Pages',
-            summary: 'Publish a classroom tool as a free website from a GitHub repository, and keep it up to date with GitHub Desktop. A first draft.',
+            summary: 'Publish a classroom tool as a free website from a GitHub repository, and keep it up to date with GitHub Desktop.',
             keywords: 'github pages publish website repository index.html free link deploy github desktop commit push clone',
             sims: [], time: '', sections: 6, standards: [], kind: 'Lesson',
             question: 'How do students open what you built?', status: 'ready'
@@ -134,7 +134,7 @@ window.COURSE = {
         {
             id: 'app-store', file: 'app-store.html', unit: 'publishing',
             title: '3 App Store',
-            summary: 'Publish an app made in Xcode: the Apple Developer Program, App Store Connect, TestFlight and App Review. A first draft.',
+            summary: 'Publish an app made in Xcode: the Apple Developer Program, App Store Connect, TestFlight and App Review.',
             keywords: 'app store apple developer program app store connect testflight app review publish ipad',
             sims: [], time: '', sections: 5, standards: [], kind: 'Lesson',
             question: 'What does it take to put an app in students’ hands?', status: 'ready'
